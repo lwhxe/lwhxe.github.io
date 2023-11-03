@@ -25,7 +25,7 @@ body, html {
 }
 
 .text-container {
-    background-color: #800080; /* Purple background for the text bubble */
+    background-color: #721919; /* Purple background for the text bubble */
     border-radius: 15px; /* Rounded corners for the bubble */
     padding: 20px;
     margin-left: 20px; /* Adds spacing between image and text */
