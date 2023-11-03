@@ -2,6 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Grey background */
     box-sizing: border-box;
 }
 
@@ -12,12 +13,7 @@ body, html {
     margin: 20px;
 }
 
-.box {
-    background-color: #f9f9f9;
-    border: 2px solid #e0e0e0;
-    border-radius: 15px;
-    margin: 10px;
-    padding: 20px;
+.image-container, .text-container {
     flex: 1;
 }
 
@@ -25,15 +21,29 @@ body, html {
     width: 100%; /* This will make the image responsive */
     height: auto;
     border-radius: 15px; /* Rounded corners for the image */
+    display: block; /* Fixes any spacing below the image */
+}
+
+.text-container {
+    background-color: #800080; /* Purple background for the text bubble */
+    border-radius: 15px; /* Rounded corners for the bubble */
+    padding: 20px;
+    margin-left: 20px; /* Adds spacing between image and text */
+    color: white; /* Text color */
 }
 
 .text-box {
-    /* You can customize this part as needed */
+    margin: 0;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
+    }
+
+    .text-container {
+        margin-left: 0;
+        margin-top: 20px;
     }
 }
