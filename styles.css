@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2; /* Grey background */
+    background-color: #000000; /* Black background */
     box-sizing: border-box;
 }
 
@@ -25,7 +25,7 @@ body, html {
 }
 
 .text-container {
-    background-color: #721919; /* Purple background for the text bubble */
+    background-color: #721919; /* Colored background for the text bubble */
     border-radius: 15px; /* Rounded corners for the bubble */
     padding: 20px;
     margin-left: 20px; /* Adds spacing between image and text */
