@@ -25,7 +25,7 @@ body, html {
 }
 
 .text-container {
-    background-color: #cfa143; /* Colored background for the text bubble */
+    background-color: #6d6c69; /* Colored background for the text bubble */
     border-radius: 15px; /* Rounded corners for the bubble */
     padding: 20px;
     margin-left: 20px; /* Adds spacing between image and text */
@@ -55,18 +55,19 @@ body, html {
   text-align: center;
   text-decoration: none;
   outline: none;
-  color: #fff;
-  background-color: #b7950b;
+  color: #000000;
+  background-color: #000000;
   border: none;
   border-radius: 5px;
 }
-
-.button:hover {
-  background-color: #3e8e41;
+.button img {
+	height: 90px;
 }
-
+.button:hover {
+  background-color: #927575;
+}
 .button:active {
-  background-color: #3e8e41;
+  background-color: #927575;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
