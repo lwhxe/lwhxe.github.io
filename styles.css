@@ -26,9 +26,9 @@ body, html {
 
 .text-container {
     background-color: #6d6c69; /* Colored background for the text bubble */
-    border-radius: 15px; /* Rounded corners for the bubble */
+    border-radius: 50px; /* Rounded corners for the bubble */
     padding: 20px;
-    margin-left: 0; /* Adds spacing between image and text */
+    margin-left: -190px; /* Adds spacing between image and text */
     color: white; /* Text color */
 }
 
