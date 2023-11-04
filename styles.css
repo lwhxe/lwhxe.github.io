@@ -28,7 +28,7 @@ body, html {
     background-color: #6d6c69; /* Colored background for the text bubble */
     border-radius: 15px; /* Rounded corners for the bubble */
     padding: 20px;
-    margin-left: 20px; /* Adds spacing between image and text */
+    margin-left: 0; /* Adds spacing between image and text */
     color: white; /* Text color */
 }
 
@@ -49,25 +49,22 @@ body, html {
 }
 .button {
   display: inline-block;
-  padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   outline: none;
   color: #000000;
-  background-color: #000000;
   border: none;
   border-radius: 20px;
+  margin-right: 20px;
 }
 .button img {
 	height: 90px;
+	background-color: #000000;
+	border-radius: 20px;
 }
-.button:hover {
-  background-color: #927575;
-}
-.button:active {
-  background-color: #927575;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+
+.button img:hover {
+	filter: brightness(144%);
 }
