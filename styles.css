@@ -18,9 +18,9 @@ body, html {
 }
 
 .image-box {
-    width: 100%; /* This will make the image responsive */
+    width: 80%; /* This will make the image responsive */
     height: auto;
-    border-radius: 15px; /* Rounded corners for the image */
+    border-radius: 50px; /* Rounded corners for the image */
     display: block; /* Fixes any spacing below the image */
 }
 
@@ -58,7 +58,7 @@ body, html {
   color: #000000;
   background-color: #000000;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 .button img {
 	height: 90px;
