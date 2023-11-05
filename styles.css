@@ -3,7 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('alex.jpg') no-repeat center center fixed;
+    background: url('whocares.gif') no-repeat center center fixed;
     background-size: cover;
     box-sizing: border-box;
 }
@@ -75,22 +75,6 @@ body, html {
     filter: brightness(1.2);
 }
 
-.logoholder {
-    margin-top: -760px;
-    margin-left: 120px;
-    display: inline-block;
-}
-
-.logoholder img.logoimage {
-    width: 300px;
-    height: 300px;
-    border-radius: 50px;
-    display: block;
-}
-
-.logoholder img.logoimage:hover {
-    filter: brightness(1.3);
-}
 
 .secondcontainer {
     width: 800px;
