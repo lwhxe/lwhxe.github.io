@@ -79,3 +79,6 @@ body, html {
 	border-radius: 50px;
 	display: block;
 }
+.logoholder img.logoimage:hover {
+	filter: brightness(144%);
+}
