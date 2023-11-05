@@ -80,5 +80,5 @@ body, html {
 	display: block;
 }
 .logoholder img.logoimage:hover {
-	filter: brightness(144%);
+	filter: filter 0.3s ease;
 }
