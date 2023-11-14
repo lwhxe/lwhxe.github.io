@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const buttons = document.querySelectorAll('.button img'); // Select all button images
-    // Add event listeners to each button for the brightness effect
-    buttons.forEach((button) => {
-        button.addEventListener('mousemove', (e) => {
-            const rect = button.getBoundingClientRect();
+    const gojophoto = document.querySelector('.secondcontainer img'); // Select the Gojo image
+
+    // Function to add brightness effect
+    function addBrightnessEffect(element) {
+        element.addEventListener('mousemove', (e) => {
+            const rect = element.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
@@ -11,11 +13,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const distance = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
             const maxDistance = Math.sqrt(Math.pow(centerX, 2) + Math.pow(centerY, 2));
             const brightness = 130 - (distance / maxDistance * 30);
-            button.style.filter = `brightness(${brightness}%)`;
+            element.style.filter = `brightness(${brightness}%)`;
         });
 
-        button.addEventListener('mouseleave', () => {
-            button.style.filter = 'brightness(100%)';
+        element.addEventListener('mouseleave', () => {
+            element.style.filter = 'brightness(105%)';
         });
+    }
+
+    // Add effect to buttons
+    buttons.forEach((button) => {
+        addBrightnessEffect(button);
     });
+
+    // Add effect to Gojo image
+    if (gojophoto) {
+        addBrightnessEffect(gojophoto);
+    }
 });
