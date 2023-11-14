@@ -95,10 +95,15 @@ body, html {
     width: 800px;
     align-self: flex-end;
     margin-bottom: 20px;
+	margin-right: -300px;
+}
+.secondcontainer a {
+	color: #2c4596;
+	text-indent: 25px;
 }
 
 .secondcontainer img {
-    width: 800px;
+    width: 400px;
     border-radius: 100px;
     display: block;
 }
