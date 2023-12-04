@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Setup and Specs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between; /* Align items side by side */
+        }
+        .content-section {
+            flex-basis: 70%; /* Content section takes 70% of the width */
+        }
+        .image-section {
+            flex-basis: 28%; /* Image section takes 28% of the width */
+            padding: 10px;
+            text-align: center; /* Center the image and text */
+        }
+        .collapsible {
+            background-color: #f9f9f9;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: 0.4s;
+        }
+        .active, .collapsible:hover {
+            background-color: #ccc; 
+        }
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            transition: max-height 0.5s ease-out;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content-section">
+            <h1>My Setup and Specifications</h1>
+
+            <button type="button" class="collapsible">PC Components</button>
+            <div class="content">
+                <ul>
+                    <li>CPU: [CPU Details]</li>
+                    <li>GPU: [GPU Details]</li>
+                    <li>Motherboard: [Motherboard Details]</li>
+                    <li>RAM: [RAM Details]</li>
+                    <li>Storage: [Storage Details]</li>
+                    <li>Power Supply: [PSU Details]</li>
+                    <li>Cooling System: [Cooling System Details]</li>
+                    <li>Case: [Case Details]</li>
+                </ul>
+            </div>
+
+            <button type="button" class="collapsible">Monitors</button>
+            <div class="content">
+                <ul>
+                    <li>Monitor 1: [Monitor 1 Details]</li>
+                    <li>Monitor 2: [Monitor 2 Details]</li>
+                    <!-- Add more monitors as needed -->
+                </ul>
+            </div>
+
+            <!-- Add more collapsible sections for other components as needed -->
+        </div>
+
+        <div class="image-section">
+            <img src="https://www.microspot.ch/medias/1103x620-M22-Logos-0071-Joule-Performance.png" alt="Joule Performance Logo" style="width: 100%; height: auto;">
+            <p>Joule Performance Logo</p>
+        </div>
+    </div>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } 
+            });
+        }
+    </script>
+</body>
+</html>
