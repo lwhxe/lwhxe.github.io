@@ -1,7 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    background-color: #333; /* Dark gray background */
+    color: #f0f0f0; /* Lighter text for contrast */
+	font-family: Verdana, sans-serif;
 }
+
 
 .container {
     width: 80%;
@@ -10,6 +12,13 @@ body {
     display: flex;
     justify-content: space-between; /* Align items side by side */
 }
+
+.container, .content-section, .image-section {
+    background-color: #444; /* Slightly lighter gray than the body */
+    padding: 10px;
+    border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
 
 .content-section {
     flex-basis: 70%; /* Content section takes 70% of the width */
@@ -22,8 +31,8 @@ body {
 }
 
 .collapsible {
-    background-color: #f9f9f9;
-    color: #444;
+    background-color: #000000;
+    color: #f9f9f9;
     cursor: pointer;
     padding: 18px;
     border: none;
@@ -43,9 +52,11 @@ body {
     padding: 0 18px;
     max-height: 0;
     overflow: hidden;
-    background-color: #f1f1f1;
+    background-color: #1a1a1a; /* Black background for the content */
+    color: #ffffff; /* White text color */
     transition: max-height 0.5s ease-out;
 }
+
 
 ul {
     list-style-type: none;
