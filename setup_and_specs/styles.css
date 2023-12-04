@@ -2,10 +2,53 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
+
 .container {
-    /* styles for container */
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between; /* Align items side by side */
 }
+
 .content-section {
-    /* styles for content section */
+    flex-basis: 70%; /* Content section takes 70% of the width */
 }
-/* Additional CSS styles... */
+
+.image-section {
+    flex-basis: 28%; /* Image section takes 28% of the width */
+    padding: 10px;
+    text-align: center; /* Center the image and text */
+}
+
+.collapsible {
+    background-color: #f9f9f9;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    transition: 0.4s;
+}
+
+.active, .collapsible:hover {
+    background-color: #ccc;
+}
+
+.content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    transition: max-height 0.5s ease-out;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 15px;
+}
