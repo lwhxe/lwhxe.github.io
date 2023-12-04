@@ -1,62 +1,12 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Setup and Specs</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            display: flex;
-            justify-content: space-between; /* Align items side by side */
-        }
-        .content-section {
-            flex-basis: 70%; /* Content section takes 70% of the width */
-        }
-        .image-section {
-            flex-basis: 28%; /* Image section takes 28% of the width */
-            padding: 10px;
-            text-align: center; /* Center the image and text */
-        }
-        .collapsible {
-            background-color: #f9f9f9;
-            color: #444;
-            cursor: pointer;
-            padding: 18px;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 18px;
-            transition: 0.4s;
-        }
-        .active, .collapsible:hover {
-            background-color: #ccc; 
-        }
-        .content {
-            padding: 0 18px;
-            max-height: 0;
-            overflow: hidden;
-            background-color: #f1f1f1;
-            transition: max-height 0.5s ease-out;
-        }
-        ul {
-            list-style-type: none;
-        }
-        li {
-            margin-bottom: 15px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <div class="container">
         <div class="content-section">
-            <h1>My Setup and Specifications</h1>
-
             <button type="button" class="collapsible">PC Components</button>
             <div class="content">
                 <ul>
@@ -79,30 +29,13 @@
                     <!-- Add more monitors as needed -->
                 </ul>
             </div>
-
-            <!-- Add more collapsible sections for other components as needed -->
+            <!-- Add more collapsible sections as needed -->
         </div>
 
         <div class="image-section">
             <img src="https://www.microspot.ch/medias/1103x620-M22-Logos-0071-Joule-Performance.png?context=bWFzdGVyfGNtc3w3MjM2fGltYWdlL3BuZ3xhR00zTDJneU5TOHhNVEF6ZURZeU1GOU5NakpmVEc5bmIzTmZNREEzTVY5S2IzVnNaVjlRWlhKbWIzSnRZVzVqWlM1d2JtZFRkR0ZuWldSdmNIUnBiV2w2WldRdk1URXdNM2cyTWpCZlRUSXlYMHh2WjI5elh6QXdOekZmU205MWJHVmZVR1Z5Wm05eWJXRnVZMlV1Y0c1blUzUmhaMlZrYjNCMGFXMXBlbVZrfDI5ZjY0NjFmMDI2Nzk2MDVmMGM4MmM0MTJlNjEyMjQ2OTIwODA4ZTdlYzZiZTFjODdjZGFjMmYzMDk4YzI5ZmI" alt="Joule Performance Logo" style="width: 100%; height: auto;">
         </div>
     </div>
-
-    <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function() {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.maxHeight){
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                } 
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
