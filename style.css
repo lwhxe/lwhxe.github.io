@@ -33,15 +33,28 @@ body {
     background-size: cover;
     background-position: center;
     border-radius: 5px;
-    margin: 15px;
+	margin-left: 20px;
+    margin-bottom: 90px; /* Adjust as needed */
+	margin-top: 15px;
     position: relative; /* For positioning the hover text */
 }
-
-.hover-content {
+.downlink {
+	display: inline-block;
+    width: 100px; /* Adjust as needed */
+    height: 70px; /* Adjust as needed */
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+	margin-left: 60px;
+    margin-bottom: 90px; /* Adjust as needed */
+	margin-top: 15px;
+    position: relative; /* For positioning the hover text */
+}
+.hover-content, .downlink-hover {
     position: absolute;
     top: 100%; /* Positioned just below the button */
-    left: -50%;
-    width: 200px;
+    left: -50%; /* Centering the hover content */
+    width: 200px; /* Adjust the width as needed */
     background-color: rgba(255, 255, 255, 0.9);
     color: black;
     text-align: center;
@@ -54,12 +67,11 @@ body {
     visibility: hidden; /* Initially not visible */
 }
 
-.image-button:hover .hover-content {
+.image-button:hover .hover-content, .downlink:hover .downlink-hover {
     transform: translateY(20px) scaleY(1); /* Move down and expand */
     opacity: 1; /* Full opacity on hover */
     visibility: visible; /* Make it visible on hover */
 }
-
 
 .content-section {
     flex-basis: 50%;
