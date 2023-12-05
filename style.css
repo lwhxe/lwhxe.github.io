@@ -25,16 +25,42 @@ body {
     height: 800px;
     border-radius: 40px;
 }
+
 .image-button {
     display: inline-block;
     width: 100px; /* Adjust as needed */
-    height: 50px; /* Adjust as needed */
+    height: 70px; /* Adjust as needed */
     background-size: cover;
     background-position: center;
     border-radius: 5px;
-	margin-top: 15px;
-    /* Add other styling as needed */
+    margin: 15px;
+    position: relative; /* For positioning the hover text */
 }
+
+.hover-content {
+    position: absolute;
+    top: 100%; /* Positioned just below the button */
+    left: -50%;
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 5px;
+    transform: translateY(0) scaleY(0); /* Start collapsed and just below the button */
+    transform-origin: top; /* Expand from the top */
+    transition: transform 0.5s ease, opacity 0.3s ease; /* Smooth transition */
+    opacity: 0; /* Start with 0 opacity */
+    visibility: hidden; /* Initially not visible */
+}
+
+.image-button:hover .hover-content {
+    transform: translateY(20px) scaleY(1); /* Move down and expand */
+    opacity: 1; /* Full opacity on hover */
+    visibility: visible; /* Make it visible on hover */
+}
+
+
 .content-section {
     flex-basis: 50%;
     padding: 20px;
