@@ -4,7 +4,14 @@ body {
 	font-family: Verdana, sans-serif;
 }
 
-
+.home_image {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    width: 80px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Optional, for rounded corners */
+}
 .container {
     width: 80%;
     margin: auto;
