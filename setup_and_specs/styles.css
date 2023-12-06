@@ -1,3 +1,6 @@
+html {
+	scroll-behavior: smooth;
+}
 body {
     background-color: #333; /* Dark gray background */
     color: #f0f0f0; /* Lighter text for contrast */
@@ -71,4 +74,17 @@ ul {
 
 li {
     margin-bottom: 15px;
+}
+.pc-image-section {
+    display: flex;
+    flex-direction: column; /* Stack images vertically */
+    align-items: center; /* Center images horizontally */
+    width: 100%; /* Take up full width of the screen */
+}
+
+.pc-image-section img {
+    max-width: 800px; /* Limit image width to not exceed container */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Add some space between images, adjust as needed */
+	border-radius: 25px;
 }
