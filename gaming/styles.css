@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    font-family: Verdana, sans-serif;
+    background-color: black;
+    color: white;
+}
+.home_image {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 80px;
+  height: auto;
+  border-radius: 5px;
+}
+.downlink-container {
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Align items vertically */
+    flex-wrap: wrap; /* Allow items to wrap in multiple lines if needed */
+    gap: 10px; /* Optional: space between items */
+    padding: 20px; /* Optional: padding around the container */
+}
+
+.downlink {
+    display: inline-block;
+    width: 140px;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    position: relative;
+	margin-bottom: 55px;
+    /* Remove margin-left and margin-bottom properties */
+}
+
+.downlink-hover {
+    position: absolute;
+    top: 100%; /* Positioned just below the button */
+    left: -40px; /* Centering the hover content */
+    width: 200px; /* Adjust the width as needed */
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 5px;
+    transform: translateY(0) scaleY(0); /* Start collapsed and just below the button */
+    transform-origin: top; /* Expand from the top */
+    transition: transform 0.5s ease, opacity 0.3s ease; /* Smooth transition */
+    opacity: 0; /* Start with 0 opacity */
+    visibility: hidden; /* Initially not visible */
+}
+
+.downlink:hover .downlink-hover {
+    transform: translateY(20px) scaleY(1); /* Move down and expand hover content */
+    opacity: 1; /* Full opacity on hover */
+    visibility: visible; /* Make it visible on hover */
+}
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.parent-of-titletext {
+    text-align: center;
+}
+
+.titletext {
+    /* Additional styles if needed */
+}
