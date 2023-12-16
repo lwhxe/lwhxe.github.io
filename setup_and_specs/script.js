@@ -11,6 +11,21 @@ document.querySelectorAll(".collapsible").forEach(function(coll) {
         }
     });
 });
+let lastScrollTop = 0;
+const banner = document.getElementById('scrollBanner');
+
+window.addEventListener('scroll', function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+
+        banner.style.top = '-50px';
+    } else {
+        banner.style.top = '0';
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+}, false);
 
 function toggleContent(content) {
     if (content.style.maxHeight) {
