@@ -56,8 +56,6 @@ body {
 .active, .collapsible:hover {
     background-color: #ccc;
 }
-
-
 .content {
     padding: 0 18px;
     max-height: 0;
@@ -66,12 +64,9 @@ body {
     color: #ffffff; /* White text color */
     transition: max-height 0.5s ease-out;
 }
-
-
 ul {
     list-style-type: none;
 }
-
 li {
     margin-bottom: 15px;
 }
@@ -81,7 +76,6 @@ li {
     align-items: center; /* Center images horizontally */
     width: 100%; /* Take up full width of the screen */
 }
-
 .pc-image-section img {
     max-width: 800px; /* Limit image width to not exceed container */
     height: auto; /* Maintain aspect ratio */

@@ -1,14 +1,21 @@
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
+document.querySelectorAll(".collapsible").forEach(function(coll) {
+    coll.addEventListener("click", function() {
         this.classList.toggle("active");
         var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-            content.style.maxHeight = null;
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-        } 
+        toggleContent(content);
+
+        // If this is a nested collapsible, update the parent
+        if (this.classList.contains("nested")) {
+            var parentContent = this.closest(".content").previousElementSibling;
+            toggleContent(parentContent);
+        }
     });
+});
+
+function toggleContent(content) {
+    if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+    } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+    }
 }

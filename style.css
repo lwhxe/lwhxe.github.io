@@ -4,6 +4,26 @@ body {
     background-color: black;
     color: white;
 }
+#scrollBanner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000; /* Corrected color value */
+    color: white;
+    padding: 10px 0;
+    transition: top 0.3s;
+    z-index: 1000;
+}
+
+#scrollBanner a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+#scrollBanner a:hover {
+	color: darkred;
+}
 
 .main-container {
     width: 100%;
