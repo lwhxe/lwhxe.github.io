@@ -1,16 +1,28 @@
 body {
-    margin: 0;
+	margin-top: 50px;
     font-family: Verdana, sans-serif;
     background-color: black;
     color: white;
 }
-.home_image {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 80px;
-  height: auto;
-  border-radius: 5px;
+#scrollBanner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000; /* Corrected color value */
+    color: white;
+    padding: 10px 0;
+    transition: top 0.3s;
+    z-index: 1000;
+}
+
+#scrollBanner a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+#scrollBanner a:hover {
+	color: darkred;
 }
 .downlink-container {
     display: flex;
