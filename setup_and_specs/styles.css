@@ -64,6 +64,8 @@ body {
     font-size: 18px;
     transition: 0.4s;
     border-radius: 15px; /* Adjust this value to increase or decrease roundness */
+	margin-bottom: 5px;
+	margin-top: 5px;
 }
 
 .active, .collapsible:hover {
