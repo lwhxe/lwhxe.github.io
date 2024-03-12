@@ -38,3 +38,6 @@ addHoverEffect(imageButtons, 'hover-content');
 // Apply to downlinks
 var downlinks = document.getElementsByClassName("downlink");
 addHoverEffect(downlinks, 'downlink-hover');
+document.getElementById('closeStream').addEventListener('click', function() {
+  document.getElementById('liveStreamContainer').style.display = 'none';
+});
