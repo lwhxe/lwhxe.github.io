@@ -55,7 +55,7 @@ document.getElementById('closeStream').addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     // Note: Replace 'google_token' with a secure method to access your API key
     // For demonstration, using a placeholder. In practice, use environment variables or server-side handling
-    const apiKey = google_token; // Placeholder, replace with secure handling
+    const apiKey = GOOGLE_TOKEN; // Placeholder, replace with secure handling
     const channelId = 'UCI-1llMHedQkNiLsLCZtjdQ';
     const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&eventType=live&key=${apiKey}`;
 
