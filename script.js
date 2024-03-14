@@ -44,7 +44,7 @@ document.getElementById('closeStream').addEventListener('click', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  const apiKey = 'AIzaSyBUtca5YG4ZGmS3gVraxP1_HwMp0cYjcLE'; // Make sure to replace this with your actual API key
+  const apiKey google_token; // Make sure to replace this with your actual API key
   const channelId = 'UCI-1llMHedQkNiLsLCZtjdQ';
   const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&eventType=live&key=${apiKey}`;
 
