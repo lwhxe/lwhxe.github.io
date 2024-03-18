@@ -58,7 +58,9 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    display: none; /* Initially hide the X button */
 }
+
 
 
 
