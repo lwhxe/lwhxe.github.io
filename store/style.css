@@ -1,88 +1,24 @@
-body {
-    margin-top: 20px;
-    font-family: Verdana, sans-serif;
-    background-color: black;
-    color: white;
-}
-#scrollBanner {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #000; /* Corrected color value */
-    color: white;
-    padding: 10px 0;
-    transition: top 0.3s;
-    z-index: 1000;
-}
-
-#scrollBanner a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-#scrollBanner a:hover {
-	color: darkred;
-}
-
-.main-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    box-sizing: border-box;
-}
-
-.image-text-container {
-    display: flex;
-    align-items: center;
-}
-
-.image-section {
-    flex-basis: 50%;
-    background-image: url('https://lwhxe.github.io/alex.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 800px;
-    border-radius: 40px;
-}
-
-.image-button {
-    display: inline-block;
-    width: 100px; /* Adjust as needed */
-    height: 70px; /* Adjust as needed */
-    background-size: cover;
-    background-position: center;
-    border-radius: 5px;
-	margin-left: 20px;
-    margin-bottom: 90px; /* Adjust as needed */
-	margin-top: 15px;
-    position: relative; /* For positioning the hover text */
-}
-.downlink {
-	display: inline-block;
-    width: 100px; /* Adjust as needed */
-    height: 70px; /* Adjust as needed */
-    background-size: cover;
-    background-position: center;
-    border-radius: 5px;
-	margin-left: 60px;
-    margin-bottom: 90px; /* Adjust as needed */
-	margin-top: 15px;
-    position: relative; /* For positioning the hover text */
-}
-.hover-content, .downlink-hover {
-    position: absolute;
-    top: 100%; /* Positioned just below the button */
-    left: -50%; /* Centering the hover content */
-    width: 200px; /* Adjust the width as needed */
-    background-color: rgba(255, 255, 255, 0.9);
-    color: black;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 5px;
-    transform: translateY(0) scaleY(0); /* Start collapsed and just below the button */
-    transform-origin: top; /* Expand from the top */
-    transition: transform 0.5s ease, opacity 0.3s ease; /* Smooth transition */
-    opacity: 0; /* Start with 0 opacity */
-    visibility: hidden; /* Initially not visible */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="product-grid">
+        <a href="products/product1.html" class="product">
+            <img src="images/product1.jpg" alt="Product 1">
+            <p>Product 1</p>
+            <span>$10.00</span>
+        </a>
+        <a href="products/product2.html" class="product">
+            <img src="images/product2.jpg" alt="Product 2">
+            <p>Product 2</p>
+            <span>$20.00</span>
+        </a>
+        <!-- Repeat for all products -->
+    </div>
+</body>
+</html>
