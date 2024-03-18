@@ -21,16 +21,16 @@ body {
     font-size: 24px; /* Adjusts the size of the title text */
     /* Add any other styling you want for your header */
 }
-
 #sidebar {
     position: fixed;
-    left: -200px; /* Adjust width of the sidebar */
+    left: -200px; /* Sidebar initially hidden */
     top: 0;
     width: 200px; /* Sidebar width */
     height: 100%;
     background-color: #333;
-    transition: left 0.5s ease;
-    padding-top: 60px; /* Adjust padding as needed */
+    transition: left 0.5s; /* Smooth transition for showing sidebar */
+    padding-top: 60px;
+    z-index: 2000; /* Ensures sidebar is above other content */
 }
 
 .sidebar-btn {
