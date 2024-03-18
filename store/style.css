@@ -7,12 +7,20 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.page-title {
-    text-align: center; /* Centers the text horizontally */
-    margin-top: 20px; /* Adds some space at the top, adjust as needed */
-    font-size: 2em; /* Adjust the size of your title */
-    /* Add any other styling you want for your title */
+.site-header {
+    position: fixed; /* Keeps the header at the top of the viewport */
+    width: 100%; /* Ensures the header spans the full width of the viewport */
+    top: 0; /* Aligns the header at the very top of the viewport */
+    left: 0; /* Aligns the header to the left edge of the viewport */
+    text-align: center; /* Centers the text within the header */
+    background-color: #fff; /* Gives the header a background color */
+    padding: 10px 0; /* Adds some padding inside the header for spacing */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Adds a subtle shadow for depth */
+    z-index: 1000; /* Ensures the header is above other content */
+    font-size: 24px; /* Adjusts the size of the title text */
+    /* Add any other styling you want for your header */
 }
+
 
 
 .product-grid {
