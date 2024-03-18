@@ -7,6 +7,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.page-title {
+    text-align: center; /* Centers the text horizontally */
+    margin-top: 20px; /* Adds some space at the top, adjust as needed */
+    font-size: 2em; /* Adjust the size of your title */
+    /* Add any other styling you want for your title */
+}
+
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
