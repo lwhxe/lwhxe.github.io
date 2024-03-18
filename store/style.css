@@ -44,6 +44,22 @@ body {
 .sidebar-btn:hover {
     background-color: #555;
 }
+#close-btn {
+    position: absolute;
+    top: 50%;
+    right: -25px; /* Adjust based on the size of the close button */
+    transform: translateY(-50%);
+    background-color: #999; /* Gray background */
+    color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px; /* Circular shape */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
 
 
 .product-grid {
