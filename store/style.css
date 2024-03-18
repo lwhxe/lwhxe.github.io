@@ -29,7 +29,9 @@ body {
     grid-gap: 20px;
     padding: 20px;
     max-width: 1200px; /* Adjust based on your design preference */
+    margin-top: 70px; /* Adjust this value based on the actual header height */
 }
+
 
 .product {
     display: flex;
