@@ -1,88 +1,106 @@
 body {
-    margin-top: 20px;
-    font-family: Verdana, sans-serif;
-    background-color: black;
-    color: white;
-}
-#scrollBanner {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #000; /* Corrected color value */
-    color: white;
-    padding: 10px 0;
-    transition: top 0.3s;
-    z-index: 1000;
-}
-
-#scrollBanner a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-#scrollBanner a:hover {
-	color: darkred;
-}
-
-.main-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    box-sizing: border-box;
-}
-
-.image-text-container {
+    margin: 0;
+    padding: 0;
     display: flex;
+    justify-content: center;
     align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: black;
 }
 
-.image-section {
-    flex-basis: 50%;
-    background-image: url('https://lwhxe.github.io/alex.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 800px;
-    border-radius: 40px;
+.site-header {
+    position: fixed; /* Keeps the header at the top of the viewport */
+    width: 100%; /* Ensures the header spans the full width of the viewport */
+    top: 0; /* Aligns the header at the very top of the viewport */
+    left: 0; /* Aligns the header to the left edge of the viewport */
+    text-align: center; /* Centers the text within the header */
+    background-color: #fff; /* Gives the header a background color */
+    padding: 10px 0; /* Adds some padding inside the header for spacing */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Adds a subtle shadow for depth */
+    z-index: 1000; /* Ensures the header is above other content */
+    font-size: 24px; /* Adjusts the size of the title text */
+    /* Add any other styling you want for your header */
+}
+#sidebar {
+    position: fixed;
+    left: -200px; /* Sidebar initially hidden */
+    top: 0;
+    width: 200px; /* Sidebar width */
+    height: 100%;
+    background-color: #333;
+    transition: left 0.5s; /* Smooth transition for showing sidebar */
+    padding-top: 60px;
+    z-index: 2000; /* Ensures sidebar is above other content */
 }
 
-.image-button {
-    display: inline-block;
-    width: 100px; /* Adjust as needed */
-    height: 70px; /* Adjust as needed */
-    background-size: cover;
-    background-position: center;
-    border-radius: 5px;
-	margin-left: 20px;
-    margin-bottom: 90px; /* Adjust as needed */
-	margin-top: 15px;
-    position: relative; /* For positioning the hover text */
-}
-.downlink {
-	display: inline-block;
-    width: 100px; /* Adjust as needed */
-    height: 70px; /* Adjust as needed */
-    background-size: cover;
-    background-position: center;
-    border-radius: 5px;
-	margin-left: 60px;
-    margin-bottom: 90px; /* Adjust as needed */
-	margin-top: 15px;
-    position: relative; /* For positioning the hover text */
-}
-.hover-content, .downlink-hover {
-    position: absolute;
-    top: 100%; /* Positioned just below the button */
-    left: -50%; /* Centering the hover content */
-    width: 200px; /* Adjust the width as needed */
-    background-color: rgba(255, 255, 255, 0.9);
-    color: black;
+.sidebar-btn {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
     text-align: center;
-    padding: 5px 0;
+}
+
+.sidebar-btn:hover {
+    background-color: #555;
+}
+#close-btn {
+    position: absolute;
+    top: 50%;
+    right: -25px; /* Adjust based on the size of the close button */
+    transform: translateY(-50%);
+    background-color: #999; /* Gray background */
+    color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px; /* Circular shape */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    display: none; /* Initially hide the X button */
+}
+
+
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+    max-width: 1200px; /* Adjust based on your design preference */
+    margin-top: 70px; /* Adjust this value based on the actual header height */
+}
+
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border: 2px solid #ddd;
+    padding: 10px;
     border-radius: 5px;
-    transform: translateY(0) scaleY(0); /* Start collapsed and just below the button */
-    transform-origin: top; /* Expand from the top */
-    transition: transform 0.5s ease, opacity 0.3s ease; /* Smooth transition */
-    opacity: 0; /* Start with 0 opacity */
-    visibility: hidden; /* Initially not visible */
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.product img {
+    max-width: 100%; /* Ensure the image is responsive */
+    height: auto;
+    border-radius: 5px; /* Optional: rounds the corners of the images */
+}
+
+.product p {
+    margin: 10px 0 5px;
+}
+
+.product span {
+    font-weight: bold;
+}
+
+.product:hover {
+    border-color: #333;
 }
