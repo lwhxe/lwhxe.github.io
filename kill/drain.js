@@ -1,5 +1,4 @@
 // drain.js
-const stopButton = document.getElementById('stop');
 const resultElement = document.getElementById('result');
 
 let computationWorker = null;
@@ -11,12 +10,3 @@ computationWorker.onmessage = function(event) {
     resultElement.textContent = event.data;  // Update the UI with each received result
 };
 console.log('Computation started.');
-
-stopButton.addEventListener('click', function() {
-    if (computationWorker) {
-        computationWorker.terminate();
-        computationWorker = null;
-        console.log('Computation stopped.');
-        resultElement.textContent = "Computation stopped.";
-    }
-});
