@@ -2,7 +2,7 @@
 function performHeavyComputation() {
     let result = 0;
     for (let i = 0; i < 1000; i++) {
-		for (let _ = 0; i < 1000; _++) {
+		for (let _ = 0; _ < 1000; _++) {
 			result += Math.random() * Math.random();
 			result += Math.pow(Math.random(), Math.random()); // Power calculations
 			result += Math.sin(Math.random() * Math.PI); // Trigonometric calculations
