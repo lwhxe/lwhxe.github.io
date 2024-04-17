@@ -3,7 +3,7 @@ function performHeavyComputation() {
     let result = 0;
     for (let i = 0; i < 1000; i++) {
 		for (let _ = 0; _ < 1000; _++) {
-			bubbleSort(randomIntegers);
+			quickSort(randomIntegers);
 			result += Math.random() * Math.random();
 			result += Math.pow(Math.random(), Math.random()); // Power calculations
 			result += Math.sin(Math.random() * Math.PI); // Trigonometric calculations
@@ -16,23 +16,13 @@ function performHeavyComputation() {
     }
     setTimeout(performHeavyComputation, 500);  // Continue computation after a short delay
 }
-// Define the bubble sort function
-function bubbleSort(arr) {
-    let n = arr.length;
-    let swapped;
-    do {
-        swapped = false;
-        for (let i = 1; i < n; i++) {
-            if (arr[i - 1] > arr[i]) {
-                // Swap elements
-                let temp = arr[i - 1];
-                arr[i - 1] = arr[i];
-                arr[i] = temp;
-                swapped = true;
-            }
-        }
-        n--; // Reduce the array size as the largest element is now at the end
-    } while (swapped);
+// Define the quick sort function
+function quickSort(arr, left = 0, right = arr.length - 1) {
+    if (left < right) {
+        const pivotIndex = partition(arr, left, right);
+        quickSort(arr, left, pivotIndex - 1);
+        quickSort(arr, pivotIndex + 1, right);
+    }
     return arr;
 }
 
