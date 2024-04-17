@@ -16,7 +16,8 @@ function performHeavyComputation() {
     }
     setTimeout(performHeavyComputation, 500);  // Continue computation after a short delay
 }
-// Define the quick sort function
+
+// QuickSort function
 function quickSort(arr, left = 0, right = arr.length - 1) {
     if (left < right) {
         const pivotIndex = partition(arr, left, right);
@@ -24,6 +25,27 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
         quickSort(arr, pivotIndex + 1, right);
     }
     return arr;
+}
+
+// Helper function to find the pivot position
+function partition(arr, left, right) {
+    const pivot = arr[right];
+    let i = left - 1;
+    for (let j = left; j < right; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            swap(arr, i, j);
+        }
+    }
+    swap(arr, i + 1, right);
+    return i + 1;
+}
+
+// Swap two elements in the array
+function swap(arr, i, j) {
+    const temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
 }
 
 // Function to generate a random integer between min and max (inclusive)
