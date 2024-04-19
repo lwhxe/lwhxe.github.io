@@ -40,7 +40,7 @@ function goBack() {
         historyStack.pop();  // Remove current selection
         updateDisplay(historyStack[historyStack.length - 1]);  // Update to previous
     } else {
-        alert("You're at the initial 'ME' profile.");
+        alert("You're at the initial 'Alexander Thomas Bohman' profile.");
     }
 }
 
