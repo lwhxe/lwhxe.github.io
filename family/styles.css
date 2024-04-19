@@ -1,0 +1,41 @@
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.family-tree {
+    display: flex;
+    align-items: center;
+}
+
+.person {
+    width: 150px;
+    height: 100px;
+    background-color: grey;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    position: relative;
+}
+
+#father::before, #mother::before {
+    content: '';
+    width: 60px;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+}
+
+#father::before {
+    right: 100%;
+}
+
+#mother::before {
+    left: 100%;
+}
