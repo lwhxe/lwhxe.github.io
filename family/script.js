@@ -1,12 +1,12 @@
 let familyData = null;  // To store family data globally
-let historyStack = [];  // To track navigation history
+let historyStack = [1];  // Start with the initial 'ME' ID in the stack
 
 document.addEventListener('DOMContentLoaded', function () {
     fetch('database.json')
         .then(response => response.json())
         .then(data => {
             familyData = data;
-            updateDisplay(1);  // Start with ID 1, "ME"
+            updateDisplay(historyStack[0]);  // Start with ID 1, "ME"
         })
         .catch(error => {
             console.error('Error loading the data:', error);
@@ -25,13 +25,13 @@ function updateDisplay(selectedPersonId) {
     document.getElementById('mother').dataset.id = mother ? mother.id : '';
     document.getElementById('father').textContent = father ? father.name : 'No Data';
     document.getElementById('father').dataset.id = father ? father.id : '';
-
-    historyStack.push(selectedPersonId);  // Store history of selected person IDs
 }
 
 function updateSelected(element) {
     if (element.dataset.id) {
-        updateDisplay(parseInt(element.dataset.id));
+        const selectedId = parseInt(element.dataset.id);
+        historyStack.push(selectedId);  // Push new selection to stack
+        updateDisplay(selectedId);
     }
 }
 
@@ -40,7 +40,7 @@ function goBack() {
         historyStack.pop();  // Remove current selection
         updateDisplay(historyStack[historyStack.length - 1]);  // Update to previous
     } else {
-        updateDisplay(1);  // If at start, go back to "ME"
+        alert("You're at the initial 'ME' profile.");
     }
 }
 
