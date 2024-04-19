@@ -1,3 +1,15 @@
+#backButton {
+    position: absolute;
+    left: 10px;  /* Place the button on the left side */
+    top: 10px;  /* Offset from the top */
+    padding: 10px 20px;
+    background-color: #444;  /* Dark gray to match the theme */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 body {
     background-color: black;
     display: flex;
@@ -5,62 +17,23 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    position: relative;  /* Needed to position the back button absolutely */
 }
 
 .family-tree {
-    position: relative; /* Needed for absolute positioning of children */
-    height: 400px; /* Adjust height to fit all elements nicely */
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: flex-start; /* Align items at the start to allow manual adjustment */
 }
 
 .person {
-    width: 250px;
+    width: 200px;
     height: 100px;
     background-color: #333;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
     border: 2px solid white;
     border-radius: 10px;
-    position: absolute; /* Use absolute to manually place each box */
-}
-
-#selected {
-    bottom: 20px; /* Lower down the selected person */
-}
-
-#father {
-    top: 0; /* Place father at the top */
-    left: -260px; /* Adjust left to create the triangle shape */
-}
-
-#mother {
-    top: 0; /* Place mother at the top */
-    right: -260px; /* Adjust right to create the triangle shape */
-}
-#selected::after {
-    content: '';
-    width: 250px; /* Length of the arrow */
-    height: 5px; /* Thickness of the arrow */
-    background-color: white;
-    position: absolute;
-    top: -80%; /* Center the line vertically within the box */
-    left: 48%; /* Start the line from the middle of the box */
-    transform: translateX(-75%) translateY(-50%) rotate(50deg); /* Adjust rotation and positioning */
-    z-index: -1; /* Put the arrow behind the boxes if needed */
-}
-#selected::before {
-    content: '';
-    width: 250px; /* Length of the arrow */
-    height: 5px; /* Thickness of the arrow */
-    background-color: white;
-    position: absolute;
-    top: -80%; /* Center the line vertically within the box */
-    left: 102%; /* Start the line from the middle of the box */
-    transform: translateX(-75%) translateY(-50%) rotate(-50deg); /* Adjust rotation and positioning */
-    z-index: -1; /* Put the arrow behind the boxes if needed */
 }
