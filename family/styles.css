@@ -89,17 +89,14 @@ body {
 }
 #selected {
     bottom: 20px;
-    z-index: 12;
 }
 #father {
     top: 0;
     left: -260px;
-    z-index: 12;
 }
 #mother {
     top: 0;
     right: -260px;
-    z-index: 12;
 }
 #selected::after {
     content: '';
