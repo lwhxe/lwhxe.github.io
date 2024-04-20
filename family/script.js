@@ -38,7 +38,7 @@ function updateSelected(element) {
     if (element.dataset.id) {
         const selectedId = parseInt(element.dataset.id);
         historyStack.push(selectedId);  // Push new selection to stack
-        const transitionClass = element.id === 'father' ? 'fade-in-tl-br' : 'fade-in-br-tl';
+        const transitionClass = element.id === 'father' ? 'fade-in-tl-br' : 'fade-in-tr-bl';
         updateDisplay(selectedId, transitionClass);
     }
 }
