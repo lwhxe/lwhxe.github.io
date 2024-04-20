@@ -59,7 +59,35 @@ body {
     border: 2px solid white;
     border-radius: 10px;
     position: absolute;
+	transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
+.fade-in-tl-br { /* From top-left to bottom-right for Father */
+    animation: fadeInMoveTLBR 0.5s forwards;
+}
+
+.fade-in-br-tl { /* From bottom-right to top-left for Mother */
+    animation: fadeInMoveBRTL 0.5s forwards;
+}
+
+.fade-in-bottom-top { /* From bottom to top for the Back button */
+    animation: fadeInMoveBottomTop 0.5s forwards;
+}
+
+@keyframes fadeInMoveTLBR {
+    from { opacity: 0; transform: translate(-50px, -50px); }
+    to { opacity: 1; transform: translate(0, 0); }
+}
+
+@keyframes fadeInMoveBRTL {
+    from { opacity: 0; transform: translate(50px, 50px); }
+    to { opacity: 1; transform: translate(0, 0); }
+}
+
+@keyframes fadeInMoveBottomTop {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 #selected {
     bottom: 20px;
 }
