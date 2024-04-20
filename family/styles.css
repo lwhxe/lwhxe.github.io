@@ -60,6 +60,7 @@ body {
     border-radius: 10px;
     position: absolute;
 	transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+	z-index: 2;
 }
 .fade-in-tl-br { /* From top-left to bottom-right for Father */
     animation: fadeInMoveTLBR 0.5s forwards;
@@ -89,6 +90,7 @@ body {
 }
 #selected {
     bottom: 20px;
+	z-index: 1;
 }
 #father {
     top: 0;
@@ -107,7 +109,7 @@ body {
     top: -80%;
     left: 48%;
     transform: translateX(-75%) translateY(-50%) rotate(50deg);
-    z-index: -1;
+    z-index: 1;
 }
 #selected::before {
     content: '';
@@ -118,5 +120,5 @@ body {
     top: -80%;
     left: 102%;
     transform: translateX(-75%) translateY(-50%) rotate(-50deg);
-    z-index: -1;
+    z-index: 1;
 }
