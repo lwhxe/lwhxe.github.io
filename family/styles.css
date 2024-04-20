@@ -16,6 +16,10 @@
     top: -30px; /* Adjust this value based on actual layout needs */
     right: -260px; /* Align with the mother box */
 }
+#selected-label {
+	top: -30px; /* Adjust this value based on actual layout needs */
+    right: 0px;
+}
 
 /* Existing styles */
 body {
