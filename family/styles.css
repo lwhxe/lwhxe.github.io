@@ -1,3 +1,23 @@
+.label {
+    position: absolute;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 250px; /* Match the width of the person boxes */
+}
+
+#father-label {
+    top: -30px; /* Adjust this value based on actual layout needs */
+    left: -260px; /* Align with the father box */
+}
+
+#mother-label {
+    top: -30px; /* Adjust this value based on actual layout needs */
+    right: -260px; /* Align with the mother box */
+}
+
+/* Existing styles */
 body {
     background-color: black;
     display: flex;
@@ -8,23 +28,22 @@ body {
 }
 #backButton {
     position: absolute;
-    left: 10px;  /* Place the button on the left side */
-    top: 10px;  /* Offset from the top */
+    left: 10px;
+    top: 10px;
     padding: 10px 20px;
-    background-color: #444;  /* Dark gray to match the theme */
+    background-color: #444;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 .family-tree {
-    position: relative; /* Needed for absolute positioning of children */
-    height: 400px; /* Adjust height to fit all elements nicely */
+    position: relative;
+    height: 400px;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Align items at the start to allow manual adjustment */
+    align-items: flex-start;
 }
-
 .person {
     width: 250px;
     height: 100px;
@@ -36,41 +55,38 @@ body {
     font-size: 20px;
     border: 2px solid white;
     border-radius: 10px;
-    position: absolute; /* Use absolute to manually place each box */
+    position: absolute;
 }
-
 #selected {
-    bottom: 20px; /* Lower down the selected person */
+    bottom: 20px;
 }
-
 #father {
-    top: 0; /* Place father at the top */
-    left: -260px; /* Adjust left to create the triangle shape */
+    top: 0;
+    left: -260px;
 }
-
 #mother {
-    top: 0; /* Place mother at the top */
-    right: -260px; /* Adjust right to create the triangle shape */
+    top: 0;
+    right: -260px;
 }
 #selected::after {
     content: '';
-    width: 250px; /* Length of the arrow */
-    height: 5px; /* Thickness of the arrow */
+    width: 250px;
+    height: 5px;
     background-color: white;
     position: absolute;
-    top: -80%; /* Center the line vertically within the box */
-    left: 48%; /* Start the line from the middle of the box */
-    transform: translateX(-75%) translateY(-50%) rotate(50deg); /* Adjust rotation and positioning */
-    z-index: -1; /* Put the arrow behind the boxes if needed */
+    top: -80%;
+    left: 48%;
+    transform: translateX(-75%) translateY(-50%) rotate(50deg);
+    z-index: -1;
 }
 #selected::before {
     content: '';
-    width: 250px; /* Length of the arrow */
-    height: 5px; /* Thickness of the arrow */
+    width: 250px;
+    height: 5px;
     background-color: white;
     position: absolute;
-    top: -80%; /* Center the line vertically within the box */
-    left: 102%; /* Start the line from the middle of the box */
-    transform: translateX(-75%) translateY(-50%) rotate(-50deg); /* Adjust rotation and positioning */
-    z-index: -1; /* Put the arrow behind the boxes if needed */
+    top: -80%;
+    left: 102%;
+    transform: translateX(-75%) translateY(-50%) rotate(-50deg);
+    z-index: -1;
 }
