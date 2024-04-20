@@ -65,7 +65,7 @@ body {
     animation: fadeInMoveTLBR 0.5s forwards;
 }
 
-.fade-in-br-tl { /* From bottom-right to top-left for Mother */
+.fade-in-tr-bl { /* From bottom-right to top-left for Mother */
     animation: fadeInMoveTRBL 0.5s forwards;
 }
 
@@ -78,7 +78,7 @@ body {
     to { opacity: 1; transform: translate(0, 0); }
 }
 
-@keyframes fadeInMoveBRTL {
+@keyframes fadeInMoveTRBL {
     from { opacity: 0; transform: translate(50px, 50px); }
     to { opacity: 1; transform: translate(0, 0); }
 }
