@@ -94,8 +94,8 @@ body {
     animation: fadeIn 0.7s forwards;
 }
 @keyframes fadeIn {
-	from {opacity: 0;}
-	to {opacity: 1;}
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 #selected {
 	font-size: 1rem;
@@ -122,6 +122,7 @@ body {
     left: 0px;
     transform: translateX(-75%) translateY(-50%) rotate(50deg);
     z-index: -1;
+    opacity: 1;
 }
 .line2 {
     content: '';
@@ -133,5 +134,5 @@ body {
     left: 125px;
     transform: translateX(-75%) translateY(-50%) rotate(-50deg);
     z-index: -1;
+    opacity: 1;
 }
-
