@@ -100,44 +100,25 @@ body {
     top: 0;
     right: -260px;
 }
-#selected {
-    position: relative;
-    z-index: 1; /* Ensures it's above its pseudo-elements */
-    width: 250px;
-    height: 100px;
-    background-color: #333; /* Assume background needed here */
-}
-
-#selected-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 20px;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Animations applied here */
-}
-
-#selected::after, #selected::before {
+#selected::after {
     content: '';
-    position: absolute;
     width: 250px;
     height: 5px;
     background-color: white;
+    position: absolute;
     top: -80%;
-    z-index: -1; /* Now effectively behind #selected due to parent's higher z-index */
-}
-
-#selected::after {
     left: 48%;
     transform: translateX(-75%) translateY(-50%) rotate(50deg);
+    z-index: 1;
 }
-
 #selected::before {
+    content: '';
+    width: 250px;
+    height: 5px;
+    background-color: white;
+    position: absolute;
+    top: -80%;
     left: 102%;
     transform: translateX(-75%) translateY(-50%) rotate(-50deg);
+    z-index: 1;
 }
