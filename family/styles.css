@@ -65,15 +65,15 @@ body {
 	z-index: 2;
 }
 .fade-in-tl-br { /* From top-left to bottom-right for Father */
-    animation: fadeInMoveTLBR 0.5s forwards;
+    animation: fadeInMoveTLBR 0.7s forwards;
 }
 
 .fade-in-tr-bl { /* From bottom-right to top-left for Mother */
-    animation: fadeInMoveTRBL 0.5s forwards;
+    animation: fadeInMoveTRBL 0.7s forwards;
 }
 
 .fade-in-bottom-top { /* From bottom to top for the Back button */
-    animation: fadeInMoveBottomTop 0.5s forwards;
+    animation: fadeInMoveBottomTop 0.7s forwards;
 }
 
 @keyframes fadeInMoveTLBR {
@@ -89,6 +89,13 @@ body {
 @keyframes fadeInMoveBottomTop {
     from { opacity: 0; transform: translateY(50px); }
     to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+    animation: fadeIn 0.7s forwards;
+}
+@keyframes fadeIn {
+	from {opacity: 0;}
+	to {opacity: 1;}
 }
 #selected {
 	font-size: 1rem;

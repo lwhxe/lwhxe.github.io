@@ -5,8 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function updateDisplay(selectedPersonId, transitionClass) {
-	const person = familyData.find(p => p.id === selectedPersonId);
-    const selectedContentDiv = document.getElementById('selected-content');
+    const person = familyData.find(p => p.id === selectedPersonId);
     const mother = person.motherId ? familyData.find(p => p.id === person.motherId) : null;
     const father = person.fatherId ? familyData.find(p => p.id === person.fatherId) : null;
 
@@ -14,19 +13,30 @@ function updateDisplay(selectedPersonId, transitionClass) {
     const selectedDiv = document.getElementById('selected');
     const motherDiv = document.getElementById('mother');
     const fatherDiv = document.getElementById('father');
-	const line1Div = document.getElementById('line1');
-	const line2Div = document.getElementById('line2');
+    const line1Div = document.getElementById('line1');
+    const line2Div = document.getElementById('line2');
 
-    // Apply class to reset animations if necessary
-    selectedDiv.className = 'person';  // Reset to default class to remove all previous animations
+    // Reset classes to remove any previous animations
+    selectedDiv.className = 'person';
     motherDiv.className = 'person';
     fatherDiv.className = 'person';
+    line1Div.className = ''; // Ensure no other classes interfere
+    line2Div.className = '';
+
+    // Apply fade-in animation to lines at the same time as other transitions
+    line1Div.classList.add('fade-in');
+    line2Div.classList.add('fade-in');
 
     // Re-add the appropriate class to ensure animation can restart
     if (transitionClass) {
-        // Delay adding the class slightly to ensure DOM has time to reset
         setTimeout(() => {
             selectedDiv.classList.add(transitionClass);
+            motherDiv.classList.add(transitionClass);
+            fatherDiv.classList.add(transitionClass);
+            // Also apply the fade-in animation if needed here to synchronize
+            selectedDiv.classList.add('fade-in');
+            motherDiv.classList.add('fade-in');
+            fatherDiv.classList.add('fade-in');
         }, 20);  // Short delay to help reset the animation
     }
 
@@ -38,6 +48,7 @@ function updateDisplay(selectedPersonId, transitionClass) {
     fatherDiv.textContent = father ? father.name : 'No Data';
     fatherDiv.dataset.id = father ? father.id : '';
 }
+
 
 function updateSelected(element) {
     if (element.dataset.id) {
