@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function updateDisplay(selectedPersonId, transitionClass) {
-    const person = familyData.find(p => p.id === selectedPersonId);
+	const person = familyData.find(p => p.id === selectedPersonId);
+    const selectedContentDiv = document.getElementById('selected-content');
     const mother = person.motherId ? familyData.find(p => p.id === person.motherId) : null;
     const father = person.fatherId ? familyData.find(p => p.id === person.fatherId) : null;
 
