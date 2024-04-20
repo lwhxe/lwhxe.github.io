@@ -99,25 +99,30 @@ body {
     top: 0;
     right: -260px;
 }
-#selected::after {
+#selected::after, #selected::before {
     content: '';
     width: 250px;
     height: 5px;
     background-color: white;
     position: absolute;
     top: -80%;
-    left: 48%;
-    transform: translateX(-75%) translateY(-50%) rotate(50deg);
-    z-index: -1;
+    transform: translateY(-50%);
+    z-index: -1; /* Ensure this is always applied */
 }
+
+#selected::after {
+    left: 48%;
+    transform: translateX(-75%) rotate(50deg);
+}
+
 #selected::before {
-    content: '';
-    width: 250px;
-    height: 5px;
-    background-color: white;
-    position: absolute;
-    top: -80%;
     left: 102%;
-    transform: translateX(-75%) translateY(-50%) rotate(-50deg);
+    transform: translateX(-75%) rotate(-50deg);
+}
+
+/* Reinforce z-index after transitions */
+.person.fade-in-tl-br::after, .person.fade-in-tl-br::before,
+.person.fade-in-tr-bl::after, .person.fade-in-tr-bl::before,
+.person.fade-in-bottom-top::after, .person.fade-in-bottom-top::before {
     z-index: -1;
 }
