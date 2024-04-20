@@ -22,6 +22,8 @@
 
 /* Existing styles */
 body {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600; /* Normal weight */
     background-color: black;
     display: flex;
     justify-content: center;
@@ -89,14 +91,17 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 #selected {
+	font-size: 1rem;
     bottom: 20px;
 	z-index: 1;
 }
 #father {
+	font-size: 1rem;
     top: 0;
     left: -260px;
 }
 #mother {
+	font-size: 1rem;
     top: 0;
     right: -260px;
 }
