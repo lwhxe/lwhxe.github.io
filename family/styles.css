@@ -66,7 +66,7 @@ body {
 }
 
 .fade-in-br-tl { /* From bottom-right to top-left for Mother */
-    animation: fadeInMoveBRTL 0.5s forwards;
+    animation: fadeInMoveTRBL 0.5s forwards;
 }
 
 .fade-in-bottom-top { /* From bottom to top for the Back button */
