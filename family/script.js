@@ -23,32 +23,26 @@ function updateDisplay(selectedPersonId, transitionClass) {
     const motherDiv = document.getElementById('mother');
     const fatherDiv = document.getElementById('father');
 
-    // Immediately remove the transition class to reset animation
-    selectedDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
-    motherDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
-    fatherDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
+    // Remove and re-add the element or force reflow
+    selectedDiv.style.animation = 'none';  // Remove the animation
 
-    // Force a reflow by accessing the offsetHeight of the element
+    // Force a reflow by accessing offsetHeight
     void selectedDiv.offsetHeight;
 
-    // Re-add the appropriate class to trigger the animation
-    if (transitionClass) {
-        selectedDiv.classList.add(transitionClass);
-    }
-
-    // Update the displayed data with a slight delay to ensure animation triggers
+    // Re-apply animation with a slight delay to ensure it kicks in
     setTimeout(() => {
+        selectedDiv.style.animation = '';  // Reset the animation so it can start again
+        if (transitionClass) {
+            selectedDiv.classList.add(transitionClass);
+        }
         selectedDiv.textContent = person.name;
         selectedDiv.dataset.id = person.id;
         motherDiv.textContent = mother ? mother.name : 'No Data';
         motherDiv.dataset.id = mother ? mother.id : '';
         fatherDiv.textContent = father ? father.name : 'No Data';
         fatherDiv.dataset.id = father ? father.id : '';
-    }, 10);
+    }, 20); // Short delay to ensure the animation is reset
 }
-
-
-
 function updateSelected(element) {
     if (element.dataset.id) {
         const selectedId = parseInt(element.dataset.id);
