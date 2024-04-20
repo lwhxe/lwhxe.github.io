@@ -14,6 +14,8 @@ function updateDisplay(selectedPersonId, transitionClass) {
     const selectedDiv = document.getElementById('selected');
     const motherDiv = document.getElementById('mother');
     const fatherDiv = document.getElementById('father');
+	const line1Div = document.getElementById('line1');
+	const line2Div = document.getElementById('line2');
 
     // Apply class to reset animations if necessary
     selectedDiv.className = 'person';  // Reset to default class to remove all previous animations
