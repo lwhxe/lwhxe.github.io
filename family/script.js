@@ -37,7 +37,7 @@ function updateDisplay(selectedPersonId, transitionClass) {
             selectedDiv.classList.add('fade-in');
             motherDiv.classList.add('fade-in');
             fatherDiv.classList.add('fade-in');
-        }, 20);  // Short delay to help reset the animation
+        }, 200);  // Short delay to help reset the animation
     }
 
     // Update the displayed data
@@ -73,4 +73,3 @@ function displayError() {
     document.getElementById('mother').textContent = 'Error loading data';
     document.getElementById('father').textContent = 'Error loading data';
 }
-updateDisplay(historyStack[0]);
