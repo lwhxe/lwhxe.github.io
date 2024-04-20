@@ -20,32 +20,32 @@ function updateDisplay(selectedPersonId, transitionClass) {
     const father = person.fatherId ? familyData.find(p => p.id === person.fatherId) : null;
 
     const selectedDiv = document.getElementById('selected');
-    const motherDiv = document.getElementById('mother');
-    const fatherDiv = document.getElementById('father');
+    // Set z-index immediately before animation
+    selectedDiv.style.zIndex = -1;
 
-    // Immediately remove the transition class to reset animation
+    // Remove classes and force reflow
     selectedDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
-    motherDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
-    fatherDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
-
-    // Force a reflow by accessing the offsetHeight of the element
     void selectedDiv.offsetHeight;
 
-    // Re-add the appropriate class to trigger the animation
-    if (transitionClass) {
-        selectedDiv.classList.add(transitionClass);
-    }
+    // Re-add the class and reset z-index after animation
+    setTimeout(() => {
+        if (transitionClass) {
+            selectedDiv.classList.add(transitionClass);
+        }
+        selectedDiv.style.zIndex = -1; // Reinforce z-index after animation
+    }, 10); // Ensures class is added after reflow
 
-    // Update the displayed data with a slight delay to ensure animation triggers
+    // Update displayed data
     setTimeout(() => {
         selectedDiv.textContent = person.name;
         selectedDiv.dataset.id = person.id;
-        motherDiv.textContent = mother ? mother.name : 'No Data';
-        motherDiv.dataset.id = mother ? mother.id : '';
-        fatherDiv.textContent = father ? father.name : 'No Data';
-        fatherDiv.dataset.id = father ? father.id : '';
-    }, 10);
+        document.getElementById('mother').textContent = mother ? mother.name : 'No Data';
+        document.getElementById('mother').dataset.id = mother ? mother.id : '';
+        document.getElementById('father').textContent = father ? father.name : 'No Data';
+        document.getElementById('father').dataset.id = father ? father.id : '';
+    }, 20); // Ensures display update happens after class manipulation
 }
+
 function updateSelected(element) {
     if (element.dataset.id) {
         const selectedId = parseInt(element.dataset.id);
