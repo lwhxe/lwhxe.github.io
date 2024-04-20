@@ -1,4 +1,4 @@
-[
+let familyData = [
     {
         "id": 1,
         "name": "Alexander Thomas Bohman",
@@ -3065,4 +3065,4 @@
         "motherId": null,
         "fatherId": null
     }
-]
+];

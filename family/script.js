@@ -1,17 +1,7 @@
-let familyData = null;  // To store family data globally
 let historyStack = [1];  // Start with the initial 'ME' ID in the stack
 
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('database.json')
-        .then(response => response.json())
-        .then(data => {
-            familyData = data;
-            updateDisplay(historyStack[0]);  // Start with ID 1, "ME"
-        })
-        .catch(error => {
-            console.error('Error loading the data:', error);
-            displayError();
-        });
+    updateDisplay(historyStack[0]);
 });
 
 function updateDisplay(selectedPersonId, transitionClass) {
@@ -71,3 +61,4 @@ function displayError() {
     document.getElementById('mother').textContent = 'Error loading data';
     document.getElementById('father').textContent = 'Error loading data';
 }
+updateDisplay(historyStack[0]);
