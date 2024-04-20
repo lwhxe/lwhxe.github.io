@@ -107,9 +107,9 @@ body {
     background-color: white;
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 0px;
     transform: translateX(-75%) translateY(-50%) rotate(50deg);
-    z-index: 1;
+    z-index: -1;
 }
 .line2 {
     content: '';
@@ -118,7 +118,8 @@ body {
     background-color: white;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 125px;
     transform: translateX(-75%) translateY(-50%) rotate(-50deg);
-    z-index: 1;
+    z-index: -1;
 }
+

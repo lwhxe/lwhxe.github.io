@@ -55,7 +55,6 @@ function goBack() {
     }
 }
 
-
 function displayError() {
     document.getElementById('selected').textContent = 'Error loading data';
     document.getElementById('mother').textContent = 'Error loading data';
