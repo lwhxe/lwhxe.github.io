@@ -19,22 +19,22 @@ function updateDisplay(selectedPersonId, transitionClass) {
     const mother = person.motherId ? familyData.find(p => p.id === person.motherId) : null;
     const father = person.fatherId ? familyData.find(p => p.id === person.fatherId) : null;
 
-    // Select the div elements
+    // Target the main selected div and related person divs
     const selectedDiv = document.getElementById('selected');
     const motherDiv = document.getElementById('mother');
     const fatherDiv = document.getElementById('father');
 
-    // Remove all applied transition classes first
-    selectedDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
-    motherDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
-    fatherDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
+    // Apply class to reset animations if necessary
+    selectedDiv.className = 'person';  // Reset to default class to remove all previous animations
+    motherDiv.className = 'person';
+    fatherDiv.className = 'person';
 
-    // Force reflow to reset animation state
-    void selectedDiv.offsetWidth;
-
-    // Apply new transition class if any
+    // Re-add the appropriate class to ensure animation can restart
     if (transitionClass) {
-        selectedDiv.classList.add(transitionClass);
+        // Delay adding the class slightly to ensure DOM has time to reset
+        setTimeout(() => {
+            selectedDiv.classList.add(transitionClass);
+        }, 20);  // Short delay to help reset the animation
     }
 
     // Update the displayed data
@@ -45,6 +45,7 @@ function updateDisplay(selectedPersonId, transitionClass) {
     fatherDiv.textContent = father ? father.name : 'No Data';
     fatherDiv.dataset.id = father ? father.id : '';
 }
+
 function updateSelected(element) {
     if (element.dataset.id) {
         const selectedId = parseInt(element.dataset.id);
