@@ -19,20 +19,34 @@ function updateDisplay(selectedPersonId, transitionClass) {
     const mother = person.motherId ? familyData.find(p => p.id === person.motherId) : null;
     const father = person.fatherId ? familyData.find(p => p.id === person.fatherId) : null;
 
-    // Set up the transition effect
     const selectedDiv = document.getElementById('selected');
-    selectedDiv.className = 'person ' + (transitionClass || ''); // Apply transition class
+    const motherDiv = document.getElementById('mother');
+    const fatherDiv = document.getElementById('father');
+
+    // Remove previous animations if any
+    selectedDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
+    motherDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
+    fatherDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
+
+    // Force reflow/repaint before the new animation
+    void selectedDiv.offsetWidth;
+
+    // Set up the transition effect based on which element is clicked
+    if (transitionClass) {
+        selectedDiv.classList.add(transitionClass);
+    }
 
     // Update display after applying class for transition
     setTimeout(() => {
         selectedDiv.textContent = person.name;
         selectedDiv.dataset.id = person.id;
-        document.getElementById('mother').textContent = mother ? mother.name : 'No Data';
-        document.getElementById('mother').dataset.id = mother ? mother.id : '';
-        document.getElementById('father').textContent = father ? father.name : 'No Data';
-        document.getElementById('father').dataset.id = father ? father.id : '';
+        motherDiv.textContent = mother ? mother.name : 'No Data';
+        motherDiv.dataset.id = mother ? mother.id : '';
+        fatherDiv.textContent = father ? father.name : 'No Data';
+        fatherDiv.dataset.id = father ? father.id : '';
     }, 10); // Short delay to ensure transition takes effect
 }
+
 
 function updateSelected(element) {
     if (element.dataset.id) {
