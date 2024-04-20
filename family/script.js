@@ -20,12 +20,10 @@ function updateDisplay(selectedPersonId, transitionClass) {
     selectedDiv.className = 'person';
     motherDiv.className = 'person';
     fatherDiv.className = 'person';
-    line1Div.className = ''; // Ensure no other classes interfere
-    line2Div.className = '';
+    line1Div.className = 'line1'; // Ensure no other classes interfere
+    line2Div.className = 'line2';
 
     // Apply fade-in animation to lines at the same time as other transitions
-    line1Div.classList.add('fade-in');
-    line2Div.classList.add('fade-in');
 
     // Re-add the appropriate class to ensure animation can restart
     if (transitionClass) {
@@ -34,10 +32,12 @@ function updateDisplay(selectedPersonId, transitionClass) {
             motherDiv.classList.add(transitionClass);
             fatherDiv.classList.add(transitionClass);
             // Also apply the fade-in animation if needed here to synchronize
-            selectedDiv.classList.add('fade-in');
-            motherDiv.classList.add('fade-in');
-            fatherDiv.classList.add('fade-in');
-        }, 200);  // Short delay to help reset the animation
+		    line1Div.classList.add('fade-in');
+			line2Div.classList.add('fade-in');
+            selectedDiv.classList.add('fade-in-bottom-top');
+            motherDiv.classList.add('fade-in-tlbr');
+            fatherDiv.classList.add('fade-in-trbl');
+        }, 2);  // Short delay to help reset the animation
     }
 
     // Update the displayed data

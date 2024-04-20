@@ -91,11 +91,15 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 .fade-in {
-    animation: fadeIn 0.7s forwards;
+    animation: fadeIn 3s forwards;
 }
 @keyframes fadeIn {
-	from { opacity: 0; }
-    to { opacity: 1; }
+    0%, 15% { /* Keeps opacity at 0 for the first ~1 second of the animation */
+        opacity: 0;
+    }
+    16%, 100% { /* Transitions to opacity 1 after 1 second pause */
+        opacity: 0.3;
+    }
 }
 #selected {
 	font-size: 1rem;
@@ -114,25 +118,25 @@ body {
 }
 .line1 {
     content: '';
-    width: 250px;
-    height: 5px;
+    width: 270px;
+    height: 7px;
     background-color: white;
     position: absolute;
-    top: 50%;
+    top: 51%;
     left: 0px;
     transform: translateX(-75%) translateY(-50%) rotate(50deg);
     z-index: -1;
-    opacity: 1;
+    opacity: 0.3;
 }
 .line2 {
     content: '';
-    width: 250px;
-    height: 5px;
+    width: 270px;
+    height: 7px;
     background-color: white;
     position: absolute;
-    top: 50%;
+    top: 51%;
     left: 125px;
     transform: translateX(-75%) translateY(-50%) rotate(-50deg);
     z-index: -1;
-    opacity: 1;
+    opacity: 0.3;
 }
