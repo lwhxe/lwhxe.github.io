@@ -1,12 +1,3 @@
-.label {
-    position: absolute;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    width: 250px; /* Match the width of the person boxes */
-}
-
 #father-label {
     top: -30px; /* Adjust this value based on actual layout needs */
     left: -260px; /* Align with the father box */
@@ -46,8 +37,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    z-index: 0;  /* Base stacking context */
 }
-.person {
+.person, .label {
+    position: absolute;
+    z-index: 2;  /* Higher than the base but below the overlays */
     width: 250px;
     height: 100px;
     background-color: #333;
@@ -58,8 +52,7 @@ body {
     font-size: 20px;
     border: 2px solid white;
     border-radius: 10px;
-    position: absolute;
-	transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 .fade-in-tl-br { /* From top-left to bottom-right for Father */
     animation: fadeInMoveTLBR 0.5s forwards;
@@ -98,25 +91,22 @@ body {
     top: 0;
     right: -260px;
 }
-#selected::after {
+#selected::after, #selected::before {
     content: '';
+    position: absolute;
     width: 250px;
     height: 5px;
     background-color: white;
-    position: absolute;
+    z-index: 1;  /* Lower than person but manages own stacking */
     top: -80%;
+}
+
+#selected::after {
     left: 48%;
     transform: translateX(-75%) translateY(-50%) rotate(50deg);
-    z-index: -1;
 }
+
 #selected::before {
-    content: '';
-    width: 250px;
-    height: 5px;
-    background-color: white;
-    position: absolute;
-    top: -80%;
     left: 102%;
     transform: translateX(-75%) translateY(-50%) rotate(-50deg);
-    z-index: -1;
 }

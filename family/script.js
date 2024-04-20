@@ -20,31 +20,42 @@ function updateDisplay(selectedPersonId, transitionClass) {
     const father = person.fatherId ? familyData.find(p => p.id === person.fatherId) : null;
 
     const selectedDiv = document.getElementById('selected');
-    // Set z-index immediately before animation
-    selectedDiv.style.zIndex = -1;
+    const motherDiv = document.getElementById('mother');
+    const fatherDiv = document.getElementById('father');
 
-    // Remove classes and force reflow
+    // Reset animations by removing classes and forcing a reflow
     selectedDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
+    motherDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
+    fatherDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
+
+    // Force a reflow by accessing offsetHeight, which is a hack to restart CSS animation
     void selectedDiv.offsetHeight;
 
-    // Re-add the class and reset z-index after animation
-    setTimeout(() => {
-        if (transitionClass) {
-            selectedDiv.classList.add(transitionClass);
-        }
-        selectedDiv.style.zIndex = -1; // Reinforce z-index after animation
-    }, 10); // Ensures class is added after reflow
+    // Apply the transition class if provided
+    if (transitionClass) {
+        selectedDiv.classList.add(transitionClass);
+    }
 
-    // Update displayed data
+    // Update the content and dataset properties of the person divs after a brief timeout
+    // This delay ensures the CSS changes have been applied and animations can restart properly
     setTimeout(() => {
         selectedDiv.textContent = person.name;
         selectedDiv.dataset.id = person.id;
-        document.getElementById('mother').textContent = mother ? mother.name : 'No Data';
-        document.getElementById('mother').dataset.id = mother ? mother.id : '';
-        document.getElementById('father').textContent = father ? father.name : 'No Data';
-        document.getElementById('father').dataset.id = father ? father.id : '';
-    }, 20); // Ensures display update happens after class manipulation
+
+        motherDiv.textContent = mother ? mother.name : 'No Data';
+        motherDiv.dataset.id = mother ? mother.id : '';
+
+        fatherDiv.textContent = father ? father.name : 'No Data';
+        fatherDiv.dataset.id = father ? father.id : '';
+
+        // Ensure z-index is set after animation to maintain stacking order
+        selectedDiv.style.zIndex = 2; // Keep selectedDiv at higher z-index after update
+        // Reapply lower z-index to ::after and ::before pseudo-elements
+        document.querySelector('#selected::after').style.zIndex = -1;
+        document.querySelector('#selected::before').style.zIndex = -1;
+    }, 10);
 }
+
 
 function updateSelected(element) {
     if (element.dataset.id) {
