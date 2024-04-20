@@ -48,10 +48,8 @@ body {
     align-items: flex-start;
 }
 .person {
-    width: 20vw;  /* responsive width */
-    height: 10vh;  /* responsive height */
-    min-width: 250px;  /* minimum width */
-    min-height: 100px;  /* minimum height */
+    width: 250px;
+    height: 100px;
     background-color: #333;
     color: white;
     display: flex;
