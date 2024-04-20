@@ -23,20 +23,20 @@ function updateDisplay(selectedPersonId, transitionClass) {
     const motherDiv = document.getElementById('mother');
     const fatherDiv = document.getElementById('father');
 
-    // Remove previous animations if any
+    // Immediately remove the transition class to reset animation
     selectedDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
     motherDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
     fatherDiv.classList.remove('fade-in-tl-br', 'fade-in-tr-bl', 'fade-in-bottom-top');
 
-    // Force reflow/repaint before the new animation
-    void selectedDiv.offsetWidth;
+    // Force a reflow by accessing the offsetHeight of the element
+    void selectedDiv.offsetHeight;
 
-    // Set up the transition effect based on which element is clicked
+    // Re-add the appropriate class to trigger the animation
     if (transitionClass) {
         selectedDiv.classList.add(transitionClass);
     }
 
-    // Update display after applying class for transition
+    // Update the displayed data with a slight delay to ensure animation triggers
     setTimeout(() => {
         selectedDiv.textContent = person.name;
         selectedDiv.dataset.id = person.id;
@@ -44,8 +44,9 @@ function updateDisplay(selectedPersonId, transitionClass) {
         motherDiv.dataset.id = mother ? mother.id : '';
         fatherDiv.textContent = father ? father.name : 'No Data';
         fatherDiv.dataset.id = father ? father.id : '';
-    }, 10); // Short delay to ensure transition takes effect
+    }, 10);
 }
+
 
 
 function updateSelected(element) {
