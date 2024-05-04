@@ -22,6 +22,10 @@
 #selected-label {
 	top: 100%; /* Adjust this value based on actual layout needs */
 }
+#leftData {
+	justify-content: flex-start; /* Align content to the left */
+    padding-left: 20px;
+}
 /* Existing styles */
 body {
 	font-family: 'Montserrat', sans-serif;
