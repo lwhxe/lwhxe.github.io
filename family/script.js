@@ -102,13 +102,6 @@ function handlePersonHover(personId) {
     });
 }
 
-
-// Example event listener attachment
-persons.forEach(person => {
-    const personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
-    person.addEventListener('mouseover', () => handlePersonHover(personId));
-});
-
 function updateLeftData(data) {
     const leftDataDiv = document.getElementById('leftData');
     leftDataDiv.innerHTML = `
@@ -124,5 +117,5 @@ function updateLeftData(data) {
 // Example event listener attachment
 persons.forEach(person => {
     const personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
-    person.addEventListener('mouseover', () => handlePersonHover(personId);
+    person.addEventListener('mouseover', () => handlePersonHover(personId));
 });
