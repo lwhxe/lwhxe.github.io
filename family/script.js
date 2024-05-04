@@ -73,11 +73,15 @@ function displayError() {
     document.getElementById('mother').textContent = 'Error loading data';
     document.getElementById('father').textContent = 'Error loading data';
 }
-let lastPersonId = 1
-function handlePersonHover(personId, lastPersonId) {
-	if (personId === lastPersonId) {
-		return;
-	}
+let lastPersonId = 1; // Initialize lastPersonId
+
+function handlePersonHover(personId) {
+    if (personId === lastPersonId) {
+        return;
+    }
+
+    lastPersonId = personId; // Update lastPersonId immediately upon a new hover
+
     fetch('https://804c-83-233-247-226.ngrok-free.app/family', {
         method: 'POST',
         headers: {
@@ -88,13 +92,11 @@ function handlePersonHover(personId, lastPersonId) {
     .then(response => response.json())
     .then(data => {
         if (data.error) {
-			if (document.getElementById('leftData').textContent != "No Data") {
-				document.getElementById('leftData').textContent = "No Data";
-			}
+            if (document.getElementById('leftData').textContent !== "No Data") {
+                document.getElementById('leftData').textContent = "No Data";
+            }
         } else {
             updateLeftData(data);
-			lastPersonId = personId;
-			return lastPersonId;
         }
     })
     .catch(error => {
@@ -102,6 +104,12 @@ function handlePersonHover(personId, lastPersonId) {
         document.getElementById('leftData').textContent = "No Data";
     });
 }
+
+// Example event listener attachment
+persons.forEach(person => {
+    const personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
+    person.addEventListener('mouseover', () => handlePersonHover(personId));
+});
 
 function updateLeftData(data) {
     const leftDataDiv = document.getElementById('leftData');
@@ -121,5 +129,5 @@ const persons = document.querySelectorAll('.person');
 // Example event listener attachment
 persons.forEach(person => {
     const personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
-    person.addEventListener('mouseover', () => lastPersonId = handlePersonHover(personId, lastPersonId));
+    person.addEventListener('mouseover', () => handlePersonHover(personId, lastPersonId));
 });
