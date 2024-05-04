@@ -22,21 +22,17 @@
 #selected-label {
 	top: 100%; /* Adjust this value based on actual layout needs */
 }
-.leftData {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Aligns content to the left */
-    padding: 10px;
-    max-width: 300px; /* Optional: limits the width of the leftData container */
+#leftData {
+	justify-content: flex-start; /* Align content to the left */
+    padding-left: 20px;
+    color: #FFFFFF;
 }
-
 /* Existing styles */
 body {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 600; /* Normal weight */
     background-color: black;
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
@@ -58,6 +54,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    right: -30%
 }
 .person {
     width: 250px;
