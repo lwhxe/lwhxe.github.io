@@ -88,7 +88,9 @@ function handlePersonHover(personId) {
     .then(response => response.json())
     .then(data => {
         if (data.error) {
-            document.getElementById('leftData').textContent = "No Data";
+			if (document.getElementById('leftData').textContent != "No Data") {
+				document.getElementById('leftData').textContent = "No Data";
+			}
         } else {
             updateLeftData(data);
 			lastPersonId = personId;
