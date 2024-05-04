@@ -72,7 +72,7 @@ function displayError() {
 // Function to handle hover event on person elements
 function handlePersonHover(personId) {
     // Fetch data when hovering over a person
-    fetch('http://e817-83-233-247-226.ngrok-free.app/family', {
+    fetch('https://804c-83-233-247-226.ngrok-free.app/family', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
