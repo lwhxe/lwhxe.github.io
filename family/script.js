@@ -73,21 +73,38 @@ function displayError() {
     document.getElementById('mother').textContent = 'Error loading data';
     document.getElementById('father').textContent = 'Error loading data';
 }
-// Function to handle hover event on person elements
 function handlePersonHover(personId) {
-    // Fetch data when hovering over a person
     fetch('https://804c-83-233-247-226.ngrok-free.app/family', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            "id": personId  // Use the provided personId instead of hardcoded 1
-        })
+        body: JSON.stringify({ "id": personId })
     })
-    .then(response => response.text())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error occurred:', error));
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            document.getElementById('leftData').textContent = "No Data";
+        } else {
+            updateLeftData(data);
+        }
+    })
+    .catch(error => {
+        console.error('Error occurred:', error);
+        document.getElementById('leftData').textContent = "No Data";
+    });
+}
+
+function updateLeftData(data) {
+    const leftDataDiv = document.getElementById('leftData');
+    leftDataDiv.innerHTML = `
+        <div><strong>Name:</strong> ${data.name}</div>
+        <div><img src="${data.img}" alt="Profile Picture" /></div>
+        <div><strong>Birth:</strong> ${data.info.birth}</div>
+        <div><strong>Gender:</strong> ${data.info.gender}</div>
+        <div><strong>Siblings:</strong> ${data.info.siblings.join(', ')}</div>
+        <div>${data.info.textinfo ? `<strong>Info:</strong> ${data.info.textinfo}` : ''}</div>
+    `;
 }
 
 // Get all person elements
