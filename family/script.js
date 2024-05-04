@@ -69,3 +69,28 @@ function displayError() {
     document.getElementById('mother').textContent = 'Error loading data';
     document.getElementById('father').textContent = 'Error loading data';
 }
+// Function to handle hover event on person elements
+function handlePersonHover(personId) {
+    // Fetch data when hovering over a person
+    fetch('http://e817-83-233-247-226.ngrok-free.app/family', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            "id": personId  // Use the provided personId instead of hardcoded 1
+        })
+    })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error occurred:', error));
+}
+
+// Get all person elements
+const persons = document.querySelectorAll('.person');
+
+// Add event listener to each person element
+persons.forEach(person => {
+    const personId = parseInt(person.dataset.id); // Get the person's ID from dataset
+    person.addEventListener('mouseover', () => handlePersonHover(personId));
+});
