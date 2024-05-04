@@ -124,9 +124,6 @@ function updateLeftData(data) {
     `;
 }
 
-// Get all person elements
-const persons = document.querySelectorAll('.person');
-
 // Example event listener attachment
 persons.forEach(person => {
     const personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
