@@ -94,6 +94,7 @@ function handlePersonHover(personId, lastPersonId) {
         } else {
             updateLeftData(data);
 			lastPersonId = personId;
+			return lastPersonId;
         }
     })
     .catch(error => {
@@ -120,5 +121,5 @@ const persons = document.querySelectorAll('.person');
 // Example event listener attachment
 persons.forEach(person => {
     const personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
-    person.addEventListener('mouseover', () => handlePersonHover(personId, lastPersonId));
+    person.addEventListener('mouseover', () => lastPersonId = handlePersonHover(personId, lastPersonId));
 });
