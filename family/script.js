@@ -79,7 +79,6 @@ let lastPersonId = 512; // Initialize lastPersonId
 function handlePersonHover(personId) {
     if (personId == lastPersonId) {
 		console.log(lastPersonId)
-        handlePersonHover(lastPersonId);
 		return;
     }
     fetch('https://804c-83-233-247-226.ngrok-free.app/family', {
