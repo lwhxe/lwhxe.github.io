@@ -73,7 +73,11 @@ function displayError() {
     document.getElementById('mother').textContent = 'Error loading data';
     document.getElementById('father').textContent = 'Error loading data';
 }
+let lastPersonId
 function handlePersonHover(personId) {
+	if (personId === lastPersonId) {
+		return;
+	}
     fetch('https://804c-83-233-247-226.ngrok-free.app/family', {
         method: 'POST',
         headers: {
@@ -87,6 +91,7 @@ function handlePersonHover(personId) {
             document.getElementById('leftData').textContent = "No Data";
         } else {
             updateLeftData(data);
+			lastPersonId = personId;
         }
     })
     .catch(error => {
