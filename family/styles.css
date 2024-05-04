@@ -27,7 +27,7 @@
 	justify-content: center; /* Align content to the left */
     padding-left: 50px;
     color: #FFFFFF;
-	max-width: 400px;
+	width: 400px;
 }
 /* Existing styles */
 body {
@@ -45,7 +45,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    right: -50%
+    left: 50%;
 }
 .person {
     width: 250px;
