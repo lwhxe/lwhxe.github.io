@@ -56,6 +56,10 @@ function updateSelected(element) {
         historyStack.push(selectedId);  // Push new selection to stack
         const transitionClass = element.id === 'father' ? 'fade-in-tl-br' : 'fade-in-tr-bl';
         updateDisplay(selectedId, transitionClass);
+		persons.forEach(person => {
+			const personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
+			person.addEventListener('mouseover', () => handlePersonHover(personId));
+		});
     }
 }
 
