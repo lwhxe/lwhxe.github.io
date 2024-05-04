@@ -45,11 +45,9 @@ function updateDisplay(selectedPersonId, transitionClass) {
     fatherDiv.textContent = father ? father.name : 'No Data';
     fatherDiv.dataset.id = father ? father.id : '';
 	
-	person.addEventListener('mouseover', 
-	persons.forEach(person => {
-		let personId = parseInt(person.id); // Ensure dataset value is captured correctly
-		person.addEventListener('mouseover', () => handlePersonHover(personId));
-	});
+	person.addEventListener('mouseover', () => handlePersonHover(person.id));
+	mother.addEventListener('mouseover', () => handlePersonHover(mother.id));
+	father.addEventListener('mouseover', () => handlePersonHover(father.id));
 }
 
 function updateSelected(element) {
