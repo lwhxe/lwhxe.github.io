@@ -73,7 +73,7 @@ function displayError() {
     document.getElementById('mother').textContent = 'Error loading data';
     document.getElementById('father').textContent = 'Error loading data';
 }
-let lastPersonId
+let lastPersonId = 512
 function handlePersonHover(personId) {
 	if (personId === lastPersonId) {
 		return;
