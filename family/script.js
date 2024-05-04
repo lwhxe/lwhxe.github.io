@@ -107,7 +107,7 @@ function updateLeftData(data) {
         <div><img src="${data.img}" alt="Profile Picture" /></div>
         <div><strong>Birth:</strong> ${data.info.birth}</div>
         <div><strong>Gender:</strong> ${data.info.gender}</div>
-        <div><strong>Siblings:</strong> ${data.info.siblings.join(', ')}</div>
+        <div><strong>Siblings:</strong> ${data.info.siblings.join(', ')}</div><br>
         <div>${data.info.textinfo}</
     `;
 }
