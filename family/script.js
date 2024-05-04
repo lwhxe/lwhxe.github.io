@@ -1,7 +1,7 @@
 let historyStack = [1];  // Start with the initial 'ME' ID in the stack
 
 document.addEventListener('DOMContentLoaded', function () {
-    updateDisplay(historyStack[0]);
+	updateDisplay(historyStack[0]);
 	persons.forEach(person => {
         const personId = parseInt(person.dataset.id);
         person.addEventListener('mouseover', () => handlePersonHover(personId));
