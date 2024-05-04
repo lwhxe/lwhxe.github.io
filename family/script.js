@@ -99,7 +99,6 @@ function handlePersonHover(personId) {
     })
     .catch(error => { // Correctly formatted .catch method
         console.error('Error occurred:', error);
-        document.getElementById('leftData').textContent = "No Data";
     });
 }
 
@@ -125,5 +124,5 @@ function updateLeftData(data) {
 // Example event listener attachment
 persons.forEach(person => {
     const personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
-    person.addEventListener('mouseover', () => handlePersonHover(personId, lastPersonId));
+    person.addEventListener('mouseover', () => handlePersonHover(personId);
 });
