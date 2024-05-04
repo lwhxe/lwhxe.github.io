@@ -92,12 +92,11 @@ function handlePersonHover(personId) {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.error) {
-            if (document.getElementById('leftData').textContent !== "No Data") {
-                document.getElementById('leftData').textContent = "No Data";
-            }
-        } else {
+        if !(data.error) {
             updateLeftData(data);
+		}
+        } else {
+			return;
         }
     })
     .catch(error => {
@@ -120,7 +119,7 @@ function updateLeftData(data) {
         <div><strong>Birth:</strong> ${data.info.birth}</div>
         <div><strong>Gender:</strong> ${data.info.gender}</div>
         <div><strong>Siblings:</strong> ${data.info.siblings.join(', ')}</div>
-        <div>${data.info.textinfo}</div>
+        <div>${data.info.textinfo}</
     `;
 }
 
