@@ -74,7 +74,7 @@ function displayError() {
     document.getElementById('father').textContent = 'Error loading data';
 }
 let lastPersonId = 512
-function handlePersonHover(personId) {
+function handlePersonHover(personId, lastPersonId) {
 	if (personId === lastPersonId) {
 		return;
 	}
@@ -120,5 +120,5 @@ const persons = document.querySelectorAll('.person');
 // Example event listener attachment
 persons.forEach(person => {
     const personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
-    person.addEventListener('mouseover', () => handlePersonHover(personId));
+    person.addEventListener('mouseover', () => handlePersonHover(personId, lastPersonId));
 });
