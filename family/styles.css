@@ -7,6 +7,7 @@
     width: 250px; /* Match the width of the person boxes */
 }
 .leftData img {
+	justify-content: center;
     max-width: 100%; /* Ensures images do not exceed the container width */
     max-height: 300px; /* Set a maximum height for the images */
 }
