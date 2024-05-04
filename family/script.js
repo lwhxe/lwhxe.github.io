@@ -100,7 +100,6 @@ function handlePersonHover(personId) {
     })
 	.catch(error) => {
 	console.error('Error occurred:', error);
-	document.getElementById('leftData').textContent = "No Data";
 	});
 }
 
