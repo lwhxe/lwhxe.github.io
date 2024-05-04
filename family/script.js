@@ -45,9 +45,9 @@ function updateDisplay(selectedPersonId, transitionClass) {
     fatherDiv.textContent = father ? father.name : 'No Data';
     fatherDiv.dataset.id = father ? father.id : '';
 	
-	selectedDiv.removeEventListener('mouseover');
-	motherDiv.removeEventListener('mouseover');
-	fatherDiv.removeEventListener('mouseover');
+	selectedDiv.removeEventListener('mouseover', handlePersonHover);
+	motherDiv.removeEventListener('mouseover', handlePersonHover);
+	fatherDiv.removeEventListener('mouseover', handlePersonHover);
 	
 	selectedDiv.addEventListener('mouseover', () => handlePersonHover(person.id));
 	motherDiv.addEventListener('mouseover', () => handlePersonHover(mother.id));
