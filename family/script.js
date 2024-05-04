@@ -48,6 +48,10 @@ function updateDisplay(selectedPersonId, transitionClass) {
     motherDiv.dataset.id = mother ? mother.id : '';
     fatherDiv.textContent = father ? father.name : 'No Data';
     fatherDiv.dataset.id = father ? father.id : '';
+	persons.forEach(person => {
+		let personId = parseInt(person.id); // Ensure dataset value is captured correctly
+		person.addEventListener('mouseover', () => handlePersonHover(personId));
+	});
 }
 
 function updateSelected(element) {
@@ -56,10 +60,6 @@ function updateSelected(element) {
         historyStack.push(selectedId);  // Push new selection to stack
         const transitionClass = element.id === 'father' ? 'fade-in-tl-br' : 'fade-in-tr-bl';
         updateDisplay(selectedId, transitionClass);
-		persons.forEach(person => {
-			personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
-			person.addEventListener('mouseover', () => handlePersonHover(personId));
-		});
     }
 }
 
@@ -115,9 +115,3 @@ function updateLeftData(data) {
         <div>${data.info.textinfo}</
     `;
 }
-
-// Example event listener attachment
-persons.forEach(person => {
-    let personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
-    person.addEventListener('mouseover', () => handlePersonHover(personId));
-});
