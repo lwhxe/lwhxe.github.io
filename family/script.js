@@ -2,6 +2,10 @@ let historyStack = [1];  // Start with the initial 'ME' ID in the stack
 
 document.addEventListener('DOMContentLoaded', function () {
     updateDisplay(historyStack[0]);
+	persons.forEach(person => {
+        const personId = parseInt(person.dataset.id);
+        person.addEventListener('mouseover', () => handlePersonHover(personId));
+    });
 });
 
 function updateDisplay(selectedPersonId, transitionClass) {
@@ -89,8 +93,8 @@ function handlePersonHover(personId) {
 // Get all person elements
 const persons = document.querySelectorAll('.person');
 
-// Add event listener to each person element
+// Example event listener attachment
 persons.forEach(person => {
-    const personId = parseInt(person.dataset.id); // Parse dataset value to an integer
+    const personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
     person.addEventListener('mouseover', () => handlePersonHover(personId));
 });
