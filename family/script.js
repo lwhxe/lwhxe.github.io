@@ -77,7 +77,7 @@ function displayError() {
 let lastPersonId = 512; // Initialize lastPersonId
 
 function handlePersonHover(personId) {
-    if (personId === lastPersonId) {
+    if (personId == lastPersonId) {
 		console.log(lastPersonId)
         return;
     }
