@@ -88,7 +88,6 @@ function handlePersonHover(personId) {
         },
         body: JSON.stringify({ "id": personId })
     })
-    .then(response => response.json())
     .then(data => {
         if (!data.error) {
             updateLeftData(data);
