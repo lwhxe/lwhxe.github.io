@@ -94,8 +94,7 @@ function handlePersonHover(personId) {
     .then(data => {
         if (!data.error) {
             updateLeftData(data);
-		}
-        } else {
+		} else {
 			.catch(error => {
 				console.error('Error occurred:', error);
 				document.getElementById('leftData').textContent = "No Data";
