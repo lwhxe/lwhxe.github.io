@@ -81,8 +81,6 @@ function handlePersonHover(personId) {
         return;
     }
 
-    lastPersonId = personId; // Update lastPersonId immediately upon a new hover
-
     fetch('https://804c-83-233-247-226.ngrok-free.app/family', {
         method: 'POST',
         headers: {
@@ -94,14 +92,17 @@ function handlePersonHover(personId) {
     .then(data => {
         if (!data.error) {
             updateLeftData(data);
-		} else {
-			return;
+			lastPersonId = personId;
+        } else {
+            document.getElementById('leftData').textContent = "No Data";
         }
     })
-	.catch(error) => {
-	console.error('Error occurred:', error);
-	});
+    .catch(error => { // Correctly formatted .catch method
+        console.error('Error occurred:', error);
+        document.getElementById('leftData').textContent = "No Data";
+    });
 }
+
 
 // Example event listener attachment
 persons.forEach(person => {
