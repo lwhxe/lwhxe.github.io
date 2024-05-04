@@ -54,7 +54,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    right: -30%
+    right: -50%
 }
 .person {
     width: 250px;
