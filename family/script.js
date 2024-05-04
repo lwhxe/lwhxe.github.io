@@ -92,7 +92,7 @@ function handlePersonHover(personId) {
     })
     .then(response => response.json())
     .then(data => {
-        if !(data.error) {
+        if (!data.error) {
             updateLeftData(data);
 		}
         } else {
