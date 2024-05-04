@@ -1,4 +1,5 @@
 let historyStack = [1];  // Start with the initial 'ME' ID in the stack
+const persons = document.querySelectorAll('.person');
 
 document.addEventListener('DOMContentLoaded', function () {
 	updateDisplay(historyStack[0]);
