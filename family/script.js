@@ -120,7 +120,7 @@ function updateLeftData(data) {
         <div><strong>Birth:</strong> ${data.info.birth}</div>
         <div><strong>Gender:</strong> ${data.info.gender}</div>
         <div><strong>Siblings:</strong> ${data.info.siblings.join(', ')}</div>
-        <div>${data.info.textinfo ? `<strong>Info:</strong> ${data.info.textinfo}` : ''}</div>
+        <div>${data.info.textinfo}</div>
     `;
 }
 
