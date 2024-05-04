@@ -93,8 +93,6 @@ function handlePersonHover(personId) {
         if (!data.error) {
             updateLeftData(data);
 			lastPersonId = personId;
-        } else {
-            document.getElementById('leftData').textContent = "No Data";
         }
     })
     .catch(error => { // Correctly formatted .catch method
