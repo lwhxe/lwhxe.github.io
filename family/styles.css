@@ -23,7 +23,7 @@
 	top: 100%; /* Adjust this value based on actual layout needs */
 }
 #leftData {
-	justify-content: flex-start; /* Align content to the left */
+	justify-content: center; /* Align content to the left */
     padding-left: 20px;
     color: #FFFFFF;
 }
