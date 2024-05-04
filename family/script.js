@@ -3,10 +3,6 @@ const persons = document.querySelectorAll('.person');
 
 document.addEventListener('DOMContentLoaded', function () {
 	updateDisplay(historyStack[0]);
-	persons.forEach(person => {
-        const personId = parseInt(person.dataset.id);
-        person.addEventListener('mouseover', () => handlePersonHover(personId));
-    });
 });
 
 function updateDisplay(selectedPersonId, transitionClass) {
@@ -48,6 +44,8 @@ function updateDisplay(selectedPersonId, transitionClass) {
     motherDiv.dataset.id = mother ? mother.id : '';
     fatherDiv.textContent = father ? father.name : 'No Data';
     fatherDiv.dataset.id = father ? father.id : '';
+	
+	person.addEventListener('mouseover', 
 	persons.forEach(person => {
 		let personId = parseInt(person.id); // Ensure dataset value is captured correctly
 		person.addEventListener('mouseover', () => handlePersonHover(personId));
