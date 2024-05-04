@@ -96,13 +96,13 @@ function handlePersonHover(personId) {
             updateLeftData(data);
 		}
         } else {
+			.catch(error => {
+				console.error('Error occurred:', error);
+				document.getElementById('leftData').textContent = "No Data";
+			});
 			return;
         }
     })
-    .catch(error => {
-        console.error('Error occurred:', error);
-        document.getElementById('leftData').textContent = "No Data";
-    });
 }
 
 // Example event listener attachment
