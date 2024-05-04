@@ -6,7 +6,10 @@
     text-align: center;
     width: 250px; /* Match the width of the person boxes */
 }
-
+.leftData img {
+    max-width: 100%; /* Ensures images do not exceed the container width */
+    max-height: 300px; /* Set a maximum height for the images */
+}
 #father-label {
     top: -30px; /* Adjust this value based on actual layout needs */
     left: -260px; /* Align with the father box */
