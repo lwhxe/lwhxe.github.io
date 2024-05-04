@@ -91,6 +91,6 @@ const persons = document.querySelectorAll('.person');
 
 // Add event listener to each person element
 persons.forEach(person => {
-    const personId = parseInt(person.dataset.id); // Get the person's ID from dataset
+    const personId = parseInt(person.dataset.id); // Parse dataset value to an integer
     person.addEventListener('mouseover', () => handlePersonHover(personId));
 });
