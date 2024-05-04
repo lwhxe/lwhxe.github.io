@@ -25,6 +25,7 @@
 #leftData {
 	justify-content: flex-start; /* Align content to the left */
     padding-left: 20px;
+    color: #FFFFFF;
 }
 /* Existing styles */
 body {
