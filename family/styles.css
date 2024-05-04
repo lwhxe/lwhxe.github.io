@@ -39,17 +39,6 @@ body {
     height: 100vh;
     margin: 0;
 }
-#backButton {
-    position: absolute;
-    left: 30%;
-    top: 50%;
-    padding: 10px 20px;
-    background-color: #444;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 .family-tree {
     position: relative;
     height: 400px;
