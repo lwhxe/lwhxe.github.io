@@ -57,7 +57,7 @@ function updateSelected(element) {
         const transitionClass = element.id === 'father' ? 'fade-in-tl-br' : 'fade-in-tr-bl';
         updateDisplay(selectedId, transitionClass);
 		persons.forEach(person => {
-			const personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
+			personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
 			person.addEventListener('mouseover', () => handlePersonHover(personId));
 		});
     }
@@ -118,6 +118,6 @@ function updateLeftData(data) {
 
 // Example event listener attachment
 persons.forEach(person => {
-    const personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
+    let personId = parseInt(person.dataset.id); // Ensure dataset value is captured correctly
     person.addEventListener('mouseover', () => handlePersonHover(personId));
 });
