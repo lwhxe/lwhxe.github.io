@@ -122,8 +122,11 @@ function handlePersonHover(personId) {
 function updateLeftData(data) {
     const leftDataDiv = document.getElementById('leftData');
 
-    // Remove the animation class to reset the animation
+    // Ensure animation class is removed
     leftDataDiv.classList.remove('fade-in-left-right');
+
+    // Force reflow to reset the animation
+    void leftDataDiv.offsetWidth;
     leftDataDiv.innerHTML = `
         <div><strong>Name:</strong> ${data.name}</div>
         <div><img src="${data.img}" alt="Profile Picture" /></div>
