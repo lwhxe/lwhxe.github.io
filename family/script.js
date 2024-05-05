@@ -117,10 +117,7 @@ function handlePersonHover(personId) {
         console.error('Error occurred:', error);
     });
 }
-function updateLeftData(data, id) {
-    const leftDataDiv = document.getElementById('leftData');
-
-    function updateInnerHTML(imageUrl) {
+function updateInnerHTML(imageUrl) {
         leftDataDiv.classList.remove('fade-in-left-right', 'opacity-down');
         void leftDataDiv.offsetWidth; // Force reflow
         leftDataDiv.innerHTML = `
@@ -132,7 +129,9 @@ function updateLeftData(data, id) {
             <div>${data.info.textinfo || ''}</div>
         `;
         leftDataDiv.classList.add('fade-in-left-right');
-    }
+}
+function updateLeftData(data, id) {
+    const leftDataDiv = document.getElementById('leftData');
 
     if (data.img) {
         updateInnerHTML(data.img);
