@@ -119,44 +119,33 @@ function handlePersonHover(personId) {
 }
 function updateLeftData(data, id) {
     const leftDataDiv = document.getElementById('leftData');
-	if (data.img == null) {
-		fetch('https://804c-83-233-247-226.ngrok-free.app/images/${id}/', { method: 'GET' })  // Change POST to GET
-		.then(response => response.blob())  // Use blob() for images
-		.then(imageBlob => {
-			const imageUrl = URL.createObjectURL(imageBlob);  // Create a URL for the blob object
-			console.log(imageUrl);  // Log the image URL or use it in <img src="...">
-		})
-		.catch(error => console.error('Error occurred:', error));
-		// Ensure animation class is removed
-		leftDataDiv.classList.remove('fade-in-left-right');
-		setTimeout(() => leftDataDiv.classList.add('opacity-down'), 1);
-		setTimeout(() => leftDataDiv.classList.remove('opacity-down'), 1);
-		// Force reflow to reset the animation
-		void leftDataDiv.offsetWidth;
-		setTimeout(() => leftDataDiv.classList.add('fade-in-left-right'), 1);
-		setTimeout(() => leftDataDiv.innerHTML = `
-			<div><strong>Name:</strong> ${data.name}</div>
-			<div><img src="${imageUrl}" alt="Profile Picture" onError="this.onerror=null; this.src='https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg';"/></div>
-			<div><strong>Birth:</strong> ${data.info.birth}</div>
-			<div><strong>Gender:</strong> ${data.info.gender}</div>
-			<div><strong>Siblings:</strong> ${data.info.siblings.join(', ')}</div><br>
-			<div>${data.info.textinfo}</
-		`, 10);
-		return;
-	}
-    // Ensure animation class is removed
-    leftDataDiv.classList.remove('fade-in-left-right');
-	setTimeout(() => leftDataDiv.classList.add('opacity-down'), 1);
-	setTimeout(() => leftDataDiv.classList.remove('opacity-down'), 1);
-    // Force reflow to reset the animation
-    void leftDataDiv.offsetWidth;
-	setTimeout(() => leftDataDiv.classList.add('fade-in-left-right'), 1);
-    setTimeout(() => leftDataDiv.innerHTML = `
-        <div><strong>Name:</strong> ${data.name}</div>
-        <div><img src="${data.img}" alt="Profile Picture" onError="this.onerror=null; this.src='https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg';"/></div>
-        <div><strong>Birth:</strong> ${data.info.birth}</div>
-        <div><strong>Gender:</strong> ${data.info.gender}</div>
-        <div><strong>Siblings:</strong> ${data.info.siblings.join(', ')}</div><br>
-        <div>${data.info.textinfo}</
-    `, 10);
+
+    function updateInnerHTML(imageUrl) {
+        leftDataDiv.classList.remove('fade-in-left-right', 'opacity-down');
+        void leftDataDiv.offsetWidth; // Force reflow
+        leftDataDiv.innerHTML = `
+            <div><strong>Name:</strong> ${data.name}</div>
+            <div><img src="${imageUrl}" alt="Profile Picture" onError="this.onerror=null; this.src='https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg';"/></div>
+            <div><strong>Birth:</strong> ${data.info.birth}</div>
+            <div><strong>Gender:</strong> ${data.info.gender}</div>
+            <div><strong>Siblings:</strong> ${data.info.siblings.join(', ')}</div><br>
+            <div>${data.info.textinfo || ''}</div>
+        `;
+        leftDataDiv.classList.add('fade-in-left-right');
+    }
+
+    if (data.img) {
+        updateInnerHTML(data.img);
+    } else {
+        fetch(`https://804c-83-233-247-226.ngrok-free.app/images/${id}/`, { method: 'GET' })
+        .then(response => response.blob())
+        .then(imageBlob => {
+            const imageUrl = URL.createObjectURL(imageBlob);
+            updateInnerHTML(imageUrl);
+        })
+        .catch(error => {
+            console.error('Error occurred:', error);
+            updateInnerHTML('https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg'); // Fallback image
+        });
+    }
 }
