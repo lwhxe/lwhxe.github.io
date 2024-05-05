@@ -137,3 +137,4 @@ function updateLeftData(data) {
     `;
 	leftDataDiv.classList.add('fade-in-left-right');
 }
+setTimeout(() => leftDataDiv.classList.add('fade-in-left-right'), 10); // Delay re-adding class by 10ms
