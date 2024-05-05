@@ -109,7 +109,6 @@ function handlePersonHover(personId) {
         if (!data.error) {
             updateLeftData(data); // Update the display with the new person data
 			const leftDataDiv = document.getElementById('leftData');
-            leftDataDiv.classList.add('fade-in-left-right');
         } else {
             console.error("Data error received:", data.error);
         }
@@ -133,4 +132,5 @@ function updateLeftData(data) {
         <div><strong>Siblings:</strong> ${data.info.siblings.join(', ')}</div><br>
         <div>${data.info.textinfo}</
     `;
+	leftDataDiv.classList.add('fade-in-left-right');
 }
