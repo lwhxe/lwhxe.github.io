@@ -8,8 +8,8 @@
 }
 .leftData img {
 	padding-left: 10%;
-    max-width: 100%; /* Ensures images do not exceed the container width */
-    max-height: 300px; /* Set a maximum height for the images */
+    max-width: 120%; /* Ensures images do not exceed the container width */
+    max-height: 350px; /* Set a maximum height for the images */
 }
 #father-label {
     top: -30px; /* Adjust this value based on actual layout needs */
@@ -27,7 +27,7 @@
 	justify-content: center; /* Align content to the left */
     padding-left: 50px;
     color: #FFFFFF;
-	width: 400px;
+	width: 500px;
 }
 /* Existing styles */
 body {
@@ -45,7 +45,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    left: 45%;
+    left: 35%;
 }
 .person {
     width: 250px;
