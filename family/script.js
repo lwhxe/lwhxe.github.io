@@ -119,7 +119,7 @@ function handlePersonHover(personId) {
 }
 function updateLeftData(data, id) {
     const leftDataDiv = document.getElementById('leftData');
-	if (!data.img) {
+	if (data.img == null) {
 		fetch('https://804c-83-233-247-226.ngrok-free.app/images/${id}/', { method: 'GET' })  // Change POST to GET
 		.then(response => response.blob())  // Use blob() for images
 		.then(imageBlob => {
