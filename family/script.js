@@ -1,6 +1,6 @@
 let historyStack = [1];  // Start with the initial 'ME' ID in the stack
 const persons = document.querySelectorAll('.person');
-
+const leftDataDiv = document.getElementById('leftData');
 document.addEventListener('DOMContentLoaded', function () {
 	updateDisplay(historyStack[0]);
 });
@@ -117,7 +117,6 @@ function handlePersonHover(personId) {
     });
 }
 function updateInnerHTML(imageUrl) {
-		const leftDataDiv = document.getElementById('leftData');
         leftDataDiv.classList.remove('fade-in-left-right', 'opacity-down');
         void leftDataDiv.offsetWidth; // Force reflow
         leftDataDiv.innerHTML = `
