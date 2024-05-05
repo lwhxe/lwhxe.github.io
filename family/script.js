@@ -136,5 +136,5 @@ function updateLeftData(data) {
         <div><strong>Gender:</strong> ${data.info.gender}</div>
         <div><strong>Siblings:</strong> ${data.info.siblings.join(', ')}</div><br>
         <div>${data.info.textinfo}</
-    `);
+    `, 10);
 }
