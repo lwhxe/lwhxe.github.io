@@ -1,6 +1,6 @@
 let historyStack = [1];  // Start with the initial 'ME' ID in the stack
 const persons = document.querySelectorAll('.person');
-
+const leftDataDiv = document.getElementById('leftData');
 document.addEventListener('DOMContentLoaded', function () {
 	updateDisplay(historyStack[0]);
 });
@@ -108,7 +108,6 @@ function handlePersonHover(personId) {
     .then(data => {
         if (!data.error) {
             updateLeftData(data, personId); // Update the display with the new person data
-			const leftDataDiv = document.getElementById('leftData');
         } else {
             console.error("Data error received:", data.error);
         }
@@ -131,8 +130,6 @@ function updateInnerHTML(imageUrl) {
         leftDataDiv.classList.add('fade-in-left-right');
 }
 function updateLeftData(data, id) {
-    const leftDataDiv = document.getElementById('leftData');
-
     if (data.img) {
         updateInnerHTML(data.img);
     } else {
