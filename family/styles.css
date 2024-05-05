@@ -76,12 +76,12 @@ body {
 	animation: fadeInMoveLeftRight 0.7s forwards;
 }
 @keyframes fadeInMoveLeftRight {
-	from { opacity: 0; transform: translate(-50px, 0px); }
-	to { opacity: 1; transform: translate(0, 0); }
+	0%, 25% { opacity: 0; transform: translate(-50px, 0px); }
+	26%, 100% { opacity: 1; transform: translate(0, 0); }
 }
 @keyframes fadeInMoveTLBR {
-    0%, 25% { opacity: 0; transform: translate(-50px, -50px); }
-    26%, 100% { opacity: 1; transform: translate(0, 0); }
+    from { opacity: 0; transform: translate(-50px, -50px); }
+    to { opacity: 1; transform: translate(0, 0); }
 }
 
 @keyframes fadeInMoveTRBL {
