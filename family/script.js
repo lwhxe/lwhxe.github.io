@@ -124,7 +124,7 @@ function updateLeftData(data) {
 
     // Ensure animation class is removed
     leftDataDiv.classList.remove('fade-in-left-right');
-	leftDataDiv.classList.add('opacity-down');
+	setTimeout(() => leftDataDiv.classList.add('opacity-down'), 10);
 	setTimeout(() => leftDataDiv.classList.remove('opacity-down'), 10);
     // Force reflow to reset the animation
     void leftDataDiv.offsetWidth;
