@@ -76,7 +76,7 @@ body {
 	animation: fadeInMoveLeftRight 0.7s forwards;
 }
 .opacity-down {
-	animation: opacity-down-full 0.7 forwards;
+	animation: opacity-down-full 1.7 forwards;
 }
 @keyframes opacity-down-full {
 	from { opacity: 1; }
