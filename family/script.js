@@ -81,10 +81,17 @@ function displayError() {
 let lastPersonId = 512; // Initialize lastPersonId
 
 function handlePersonHover(personId) {
-    if (personId == lastPersonId) {
-		console.log(lastPersonId)
-		return;
+    // Check if the current personId is the same as the last hovered personId
+    if (personId === lastPersonId) {
+        console.log("Hovered the same person:", lastPersonId); // Debugging output
+        return; // Exit the function if the same person is hovered again
     }
+
+    // Update lastPersonId to the current personId
+    lastPersonId = personId;
+    console.log("New hover detected, lastPersonId updated to:", lastPersonId); // Debugging output
+
+    // Fetch data for the new person
     fetch('https://804c-83-233-247-226.ngrok-free.app/family', {
         method: 'POST',
         headers: {
@@ -95,14 +102,16 @@ function handlePersonHover(personId) {
     .then(response => response.json())
     .then(data => {
         if (!data.error) {
-            updateLeftData(data);
-			lastPersonId = personId;
+            updateLeftData(data); // Update the display with the new person data
+        } else {
+            console.error("Data error received:", data.error);
         }
     })
-    .catch(error => { // Correctly formatted .catch method
+    .catch(error => {
         console.error('Error occurred:', error);
     });
 }
+
 
 function updateLeftData(data) {
     const leftDataDiv = document.getElementById('leftData');
