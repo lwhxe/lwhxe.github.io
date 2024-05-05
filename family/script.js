@@ -45,15 +45,20 @@ function updateDisplay(selectedPersonId, transitionClass) {
     fatherDiv.textContent = father ? father.name : 'No Data';
     fatherDiv.dataset.id = father ? father.id : '';
 	
-	selectedDiv.removeEventListener('mouseover', handlePersonHover);
-	motherDiv.removeEventListener('mouseover', handlePersonHover);
-	fatherDiv.removeEventListener('mouseover', handlePersonHover);
-	
-	selectedDiv.addEventListener('mouseover', () => handlePersonHover(person.id));
-	motherDiv.addEventListener('mouseover', () => handlePersonHover(mother.id));
-	fatherDiv.addEventListener('mouseover', () => handlePersonHover(father.id));
+	attachEventListeners(selectedDiv, person.id);
+    attachEventListeners(motherDiv, mother ? mother.id : null);
+    attachEventListeners(fatherDiv, father ? father.id : null);
 }
+function attachEventListeners(element, personId) {
+    if (element.eventListener) {
+        element.removeEventListener('mouseover', element.eventListener);
+    }
 
+    if (personId) {
+        element.eventListener = () => handlePersonHover(personId);
+        element.addEventListener('mouseover', element.eventListener);
+    }
+}
 function updateSelected(element) {
     if (element.dataset.id) {
         const selectedId = parseInt(element.dataset.id);
