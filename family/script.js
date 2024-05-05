@@ -116,7 +116,7 @@ function handlePersonHover(personId) {
         console.error('Error occurred:', error);
     });
 }
-function updateInnerHTML(imageUrl) {
+function updateInnerHTML(imageUrl, data) {
 		const leftDataDiv = document.getElementById('leftData');
         leftDataDiv.classList.remove('fade-in-left-right', 'opacity-down');
         void leftDataDiv.offsetWidth; // Force reflow
@@ -132,7 +132,7 @@ function updateInnerHTML(imageUrl) {
 }
 function updateLeftData(data, id) {
     if (data.img) {
-        updateInnerHTML(data.img);
+        updateInnerHTML(data.img, data);
     } else {
         fetch(`https://804c-83-233-247-226.ngrok-free.app/images/${id}/`, { method: 'GET' })
         .then(response => response.blob())
