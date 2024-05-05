@@ -124,11 +124,11 @@ function updateLeftData(data) {
 
     // Ensure animation class is removed
     leftDataDiv.classList.remove('fade-in-left-right');
-	setTimeout(() => leftDataDiv.classList.add('opacity-down'), 10);
-	setTimeout(() => leftDataDiv.classList.remove('opacity-down'), 10);
+	setTimeout(() => leftDataDiv.classList.add('opacity-down'), 1);
+	setTimeout(() => leftDataDiv.classList.remove('opacity-down'), 1);
     // Force reflow to reset the animation
     void leftDataDiv.offsetWidth;
-	setTimeout(() => leftDataDiv.classList.add('fade-in-left-right'), 10);
+	setTimeout(() => leftDataDiv.classList.add('fade-in-left-right'), 1);
     setTimeout(() => leftDataDiv.innerHTML = `
         <div><strong>Name:</strong> ${data.name}</div>
         <div><img src="${data.img}" alt="Profile Picture" /></div>
