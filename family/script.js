@@ -124,7 +124,7 @@ function updateLeftData(data, id) {
         leftDataDiv.classList.remove('fade-in-left-right', 'opacity-down');
         void leftDataDiv.offsetWidth; // Force reflow
         leftDataDiv.innerHTML = `
-            <div><h1><strong>Name:</strong> ${data.name}</h1></div>
+            <div><h3><strong>Name:</strong> ${data.name}</h3></div>
             <div><img src="${imageUrl}" alt="Profile Picture" onError="this.onerror=null; this.src='https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg';"/></div>
             <div><strong>Birth:</strong> ${data.info.birth}</div>
             <div><strong>Gender:</strong> ${data.info.gender}</div>
