@@ -142,6 +142,7 @@ function updateLeftData(data, id) {
 			<div><strong>Siblings:</strong> ${data.info.siblings.join(', ')}</div><br>
 			<div>${data.info.textinfo}</
 		`, 10);
+		return;
 	}
     // Ensure animation class is removed
     leftDataDiv.classList.remove('fade-in-left-right');
