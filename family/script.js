@@ -117,8 +117,6 @@ function handlePersonHover(personId) {
         console.error('Error occurred:', error);
     });
 }
-
-
 function updateLeftData(data) {
     const leftDataDiv = document.getElementById('leftData');
 
@@ -131,7 +129,7 @@ function updateLeftData(data) {
 	setTimeout(() => leftDataDiv.classList.add('fade-in-left-right'), 1);
     setTimeout(() => leftDataDiv.innerHTML = `
         <div><strong>Name:</strong> ${data.name}</div>
-        <div><img src="${data.img}" alt=<img src="https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg"/></div>
+        <div><img src="${data.img}" alt="Profile Picture" onError="this.onerror=null; this.src='https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg';"/></div>
         <div><strong>Birth:</strong> ${data.info.birth}</div>
         <div><strong>Gender:</strong> ${data.info.gender}</div>
         <div><strong>Siblings:</strong> ${data.info.siblings.join(', ')}</div><br>
