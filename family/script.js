@@ -137,7 +137,7 @@ function updateLeftData(data, id) {
     if (data.img) {
         updateInnerHTML(data.img);
     } else {
-        fetch(`https://804c-83-233-247-226.ngrok-free.app/images/${id}/`, { method: 'GET' })
+        fetch(`https://9684-83-233-247-226.ngrok-free.app/images/${id}/`, { method: 'GET' })
         .then(response => response.blob())
         .then(imageBlob => {
             const imageUrl = URL.createObjectURL(imageBlob);
