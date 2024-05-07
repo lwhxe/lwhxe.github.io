@@ -29,7 +29,7 @@ body {
 	margin: 40px;
 }
 .wrapper a {
-	color: blue;
+	color: red;
 	text-decoration: none;
 }
 .wrapper a:hover {
