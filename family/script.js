@@ -98,12 +98,12 @@ function handlePersonHover(personId) {
 
     // Fetch data for the new person
     fetch(`${key}family`, {
-	method: 'POST',
-	headers: {
+    method: 'POST',
+    headers: {
         'Content-Type': 'application/json',
-    	},
-	body: JSON.stringify({ "id": personId })
-    })
+    },
+    body: JSON.stringify({ "id": personId })
+})
 .then(response => {
     if (response.ok) {
         const contentType = response.headers.get("Content-Type");
@@ -126,18 +126,6 @@ function handlePersonHover(personId) {
 .catch(error => {
     console.error('Error occurred:', error);
 });
-    .then(data => {
-        if (!data.error) {
-            updateLeftData(data, personId); // Update the display with the new person data
-			const leftDataDiv = document.getElementById('leftData');
-        } else {
-            console.error("Data error received:", data.error);
-        }
-    })
-    .catch(error => {
-        console.error('Error occurred:', error);
-    });
-}
 function updateLeftData(data, id) {
     const leftDataDiv = document.getElementById('leftData');
 
