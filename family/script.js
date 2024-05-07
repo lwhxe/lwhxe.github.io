@@ -97,7 +97,7 @@ function handlePersonHover(personId) {
     console.log("New hover detected, lastPersonId updated to:", lastPersonId); // Debugging output
 
     // Fetch data for the new person
-    fetch('https://804c-83-233-247-226.ngrok-free.app/family', {
+    fetch('${key}family', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ function updateLeftData(data, id) {
     if (data.img) {
         updateInnerHTML(data.img);
     } else {
-        fetch(`https://804c-83-233-247-226.ngrok-free.app/images/${id}/`, { method: 'GET' })
+        fetch(`${key}images/${id}/`, { method: 'GET' })
         .then(response => response.blob())
         .then(imageBlob => {
             const imageUrl = URL.createObjectURL(imageBlob);
