@@ -86,47 +86,43 @@ function displayError() {
 let lastPersonId = 512; // Initialize lastPersonId
 
 function handlePersonHover(personId) {
-    // Check if the current personId is the same as the last hovered personId
     if (personId === lastPersonId) {
-        console.log("Hovered the same person:", lastPersonId); // Debugging output
-        return; // Exit the function if the same person is hovered again
+        return;
     }
 
-    // Update lastPersonId to the current personId
     lastPersonId = personId;
-    console.log("New hover detected, lastPersonId updated to:", lastPersonId); // Debugging output
 
-    // Fetch data for the new person
     fetch(`${key}family`, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ "id": personId })
-})
-.then(response => {
-    if (response.ok) {
-        const contentType = response.headers.get("Content-Type");
-        if (contentType && contentType.includes("application/json")) {
-            return response.json();
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ "id": personId })
+    })
+    .then(response => {
+        if (response.ok) {
+            const contentType = response.headers.get("Content-Type");
+            if (contentType && contentType.includes("application/json")) {
+                return response.json();
+            } else {
+                throw new TypeError("Oops, we haven't got JSON!");
+            }
         } else {
-            throw new TypeError("Oops, we haven't got JSON!");
+            throw new Error('Network response was not ok.');
         }
-    } else {
-        throw new Error('Network response was not ok.');
-    }
-});
+    })
+    .then(data => {
+        if (!data.error) {
+            updateLeftData(data, personId);
+        } else {
+            console.error("Data error received:", data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Error occurred:', error);
+    });
 }
-.then(data => {
-    if (!data.error) {
-        updateLeftData(data, personId);
-    } else {
-        console.error("Data error received:", data.error);
-    }
-})
-.catch(error => {
-    console.error('Error occurred:', error);
-});
+
 function updateLeftData(data, id) {
     const leftDataDiv = document.getElementById('leftData');
 
