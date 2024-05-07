@@ -115,7 +115,8 @@ function handlePersonHover(personId) {
     } else {
         throw new Error('Network response was not ok.');
     }
-})
+});
+}
 .then(data => {
     if (!data.error) {
         updateLeftData(data, personId);
