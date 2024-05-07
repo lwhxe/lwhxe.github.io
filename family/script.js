@@ -97,14 +97,35 @@ function handlePersonHover(personId) {
     console.log("New hover detected, lastPersonId updated to:", lastPersonId); // Debugging output
 
     // Fetch data for the new person
-    fetch('${key}family', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ "id": personId })
+    fetch(`${key}family`, {
+	method: 'POST',
+	headers: {
+        'Content-Type': 'application/json',
+    	},
+	body: JSON.stringify({ "id": personId })
     })
-    .then(response => response.json())
+.then(response => {
+    if (response.ok) {
+        const contentType = response.headers.get("Content-Type");
+        if (contentType && contentType.includes("application/json")) {
+            return response.json();
+        } else {
+            throw new TypeError("Oops, we haven't got JSON!");
+        }
+    } else {
+        throw new Error('Network response was not ok.');
+    }
+})
+.then(data => {
+    if (!data.error) {
+        updateLeftData(data, personId);
+    } else {
+        console.error("Data error received:", data.error);
+    }
+})
+.catch(error => {
+    console.error('Error occurred:', error);
+});
     .then(data => {
         if (!data.error) {
             updateLeftData(data, personId); // Update the display with the new person data
