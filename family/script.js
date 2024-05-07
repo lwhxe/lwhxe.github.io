@@ -138,6 +138,7 @@ function updateLeftData(data, id) {
         updateInnerHTML(data.img);
     } else {
         fetch(`${key}images/${id}/`, { method: 'GET' })
+
         .then(response => response.blob())
         .then(imageBlob => {
             const imageUrl = URL.createObjectURL(imageBlob);
