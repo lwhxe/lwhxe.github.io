@@ -103,10 +103,10 @@ function handlePersonHover(personId) {
             if (contentType && contentType.includes("application/json")) {
                 return response.json();
             } else {
-                throw new TypeError("Oops, we haven't got JSON!");
+                console.log("Oops, we haven't got JSON!");
             }
         } else {
-            throw new Error('Network response was not ok.');
+            console.log('Network response was not ok.');
         }
     })
     .then(data => {
