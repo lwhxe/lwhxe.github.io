@@ -90,8 +90,6 @@ function handlePersonHover(personId) {
         return;
     }
 
-    lastPersonId = personId;
-
     fetch(`${key}family`, {
         method: 'POST',
         headers: {
@@ -114,6 +112,7 @@ function handlePersonHover(personId) {
     .then(data => {
         if (!data.error) {
             updateLeftData(data, personId);
+	    lastPersonId = personId;
         } else {
             console.error("Data error received:", data.error);
         }
