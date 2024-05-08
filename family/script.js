@@ -97,6 +97,7 @@ function handlePersonHover(personId) {
         },
         body: JSON.stringify({ "id": personId })
     })
+console.log("Here's the response\n${response}")
     .then(response => {
         if (response.ok) {
             const contentType = response.headers.get("Content-Type");
