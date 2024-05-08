@@ -97,12 +97,12 @@ function handlePersonHover(personId) {
         },
         body: JSON.stringify({ "id": personId })
     })
-console.log(response)
+    console.log(response)
     .then(response => {
         if (response.ok) {
             const contentType = response.headers.get("Content-Type");
             if (contentType && contentType.includes("application/json")) {
-		console.log(response.json)
+		console.log(response.json())
                 return response.json();
             } else {
                 console.log("Oops, we haven't got JSON!");
