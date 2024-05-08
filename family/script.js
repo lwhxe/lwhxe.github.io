@@ -97,7 +97,6 @@ function handlePersonHover(personId) {
         },
         body: JSON.stringify({ "id": personId })
     })
-    console.log(response)
     .then(response => {
         if (response.ok) {
             const contentType = response.headers.get("Content-Type");
@@ -106,6 +105,7 @@ function handlePersonHover(personId) {
                 return response.json();
             } else {
                 console.log("Oops, we haven't got JSON!");
+		console.log(response)
             }
         } else {
             console.log('Network response was not ok.');
