@@ -17,6 +17,15 @@ body {
 	background-size: cover;
 	background-position: center;
 }
+pre {
+	background-color: rgba(20, 20, 20, .8);
+	border-radius: 10px;
+	padding: 10px;
+}
+hr.rounded {
+  border-top: 5px dotted #bbb;
+  border-radius: 5px;
+}
 .wrapper {
 	width: 50%;
 	background: transparent;
@@ -29,9 +38,49 @@ body {
 	margin: 40px;
 }
 .wrapper a {
-	color: #990000;
 	text-decoration: none;
 }
 .wrapper a:hover {
 	text-decoration: underline;
+}
+.basic {
+	color: #990000;
+}
+.green {
+	color: green;
+}
+.red {
+	color: red;
+}
+.blue {
+	color: blue;
+}
+.code-block {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: "Courier New", Courier, monospace;
+  color: black; /* For better readability */
+  overflow-x: auto; /* To handle long lines of code */
+  display: flex;
+  align-items: center;
+  height: 100%; /* Ensure it takes full height */
+}
+
+.code-block code {
+  display: block;
+  white-space: pre-wrap;
+  vertical-align: middle;
+}
+.keyword {
+  color: #0000FF; /* Blue for keywords */
+}
+
+.function-name {
+  color: #8A2BE2; /* BlueViolet for function names */
+}
+
+.string {
+  color: #D2691E; /* Chocolate for strings */
 }
