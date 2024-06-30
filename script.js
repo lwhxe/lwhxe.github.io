@@ -116,7 +116,6 @@ function getAccessToken() {
         client_id: clientId,
         redirect_uri: redirectUri,
         response_type: 'token',
-        scope: 'user:read:email'
     });
 
     window.location.href = `https://id.twitch.tv/oauth2/authorize?${params.toString()}`;
