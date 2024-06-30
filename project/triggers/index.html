@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="LWHXE" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lwhxe.github.io/project" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/lwhxe/lwhxe.github.io/main/favicon.png" />
+    <meta property="og:description" content="DEngine Documentation" />
+    <meta name="published_year" content="2024">
+    <meta name="author" content="UrLastWish">
+    <title>DEngine Docs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+<div class="wrapper">
+	<h2>DEngine Documentation</h2><br><i>DEngine is using <a target="_blank" href="https://discordpy.readthedocs.io/en/latest/api.html#debug" class="basic">discord.py</a> for the actual bots; <a target="_blank" href="https://www.electronjs.org/" class="basic">electron</a> for the UI; and <a target="_blank" href="https://en.wikipedia.org/wiki/C_(programming_language)" class="basic">C language</a>, <a target="_blank" href="https://pyinstaller.org/en/stable/" class="basic">PyInstaller</a> for the compiler.</i><br><br>In DEngine, there are <a href="https://lwhxe.github.io/triggers" class="red">Triggers</a>, <a href="https://lwhxe.github.io/functions" class="green">Functions</a>, and <a href="https://lwhxe.github.io/affinities" class="blue">Affinities</a>. Each serving their own purpose.<br><br><h4><a href="https://lwhxe.github.io/triggers" class="red">Triggers</a> are meant for events, that happen in discord. For example, when a user sends a message, or when the bot disconnects.</h4><br>The buttons each have the name listed inside of the <a href="https://lwhxe.github.io/triggers" class="red">Triggers</a> page. NOT the ones that can be seen in <a target="_blank" href="https://discordpy.readthedocs.io/en/latest/api.html#debug" class="basic">discord.py</a>. For example, the on_ready(), is called Bot Ready Event, inside of DEngine. This is how it would look like in python when compiled halfway.<br>
+<pre><code>@bot.event
+<span class="keyword">async def</span> <span class="function-name">on_ready</span>():
+...</code></pre><br>
+<h4>The <a href="https://lwhxe.github.io/functions" class="green">Functions</a> in DEngine, have their own buttons, with their own names, listed in their own <a href="https://lwhxe.github.io/functions" class="green">Functions</a> page.</h4><br>They are meant for things that are done. If you need to search for a user inside of a server, or find when the users ID was created; <a href="https://lwhxe.github.io/functions" class="green">Functions</a> are your friends.<br>Use the Utility section of <a href="https://lwhxe.github.io/functions" class="green">Functions</a> for scanning user data, getting time, making the bot wait, and formatting functions, ... Here's a quick example of how the code could look like in python:<br>
+<pre><code>user = <span class="function-name">discord.utils.find</span>(lambda m: m.name == <span class="string">'Mighty'</span>, <span class="function-name">channel.guild.members</span>)</code></pre>In this code, discord.utils.find is the function being used. Attempting to find a user with the name: "Mighty".<br><br><h4><a href="https://lwhxe.github.io/affinities" class="blue">Affinities</a> are things that ARE. Can also be found in their own <a href="https://lwhxe.github.io/affinities" class="blue">Affinities</a> page.</h4><br>Affinities tell you information about a variable that you get from a Function or Trigger. It also comes from other things that you create on your own.<br>It can tell you what type of message a certain selected message is, what flags someone has, what activity a user is doing, or what a users name, discriminator and more is.<br>
+<pre><code>if <span class="function-name">message.author</span> == <span class="function-name">bot.user</span>:
+	return</code></pre>This is checking if the user who wrote the message IS the bot itself. Useful for ignoring filtering, if the message is from the bot.<br><br><hr class="rounded"></hr>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
