@@ -49,11 +49,13 @@ addHoverEffect(downlinks, 'downlink-hover');
 // Close stream functionality
 document.getElementById('closeStream').addEventListener('click', () => {
     document.getElementById('liveStreamContainer').style.display = 'none';
+	document.getElementById('twitchContainer').style.display = 'none';
 });
 
 // Close stream functionality
 document.getElementById('closeStream2').addEventListener('click', () => {
-    document.getElementById('twitchContainer').style.display = 'none';
+    document.getElementById('liveStreamContainer').style.display = 'none';
+	document.getElementById('twitchContainer').style.display = 'none';
 });
 
 // On DOMContentLoaded, initialize live stream fetching logic
