@@ -51,6 +51,11 @@ document.getElementById('closeStream').addEventListener('click', () => {
     document.getElementById('liveStreamContainer').style.display = 'none';
 });
 
+// Close stream functionality
+document.getElementById('closeStream2').addEventListener('click', () => {
+    document.getElementById('twitchContainer').style.display = 'none';
+});
+
 // On DOMContentLoaded, initialize live stream fetching logic
 document.addEventListener('DOMContentLoaded', () => {
     // Note: Replace 'google_token' with a secure method to access your API key
