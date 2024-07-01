@@ -154,8 +154,8 @@ body {
 	position: fixed;
 	bottom: 20px;
 	left: 20px;
-	width: 560px;
-	height: 315px;
+	width: 350px;
+	height: 197px;
 	z-index: 1000;
 }
 #twitchIframe {
