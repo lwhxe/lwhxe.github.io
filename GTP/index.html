@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -140,17 +140,17 @@
                     confirmation.innerText = "You somehow guessed the correct password!"
                     confirmation.style.color = "green";
                     inputField.style.border = "2px solid green";
+ 
+                    inputField.setAttribute("disabled", "disabled");
+
+                    // Animate all in...
+                    all_in();
 
                     console.log("Password the same: ", attempt, " ", finalhash);
                 } else {
                     confirmation.innerText = "You guessed the wrong password...";
                     confirmation.style.color = "red";
                     inputField.style.border = "2px solid red";
-
-                    inputField.setAttribute("disabled", "disabled");
-
-                    // Animate all in...
-                    all_in();
 
                     let element = document.getElementById(incrementor);
                     incrementor += 1;
