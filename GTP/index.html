@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #141414;
+            color: white;
+
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+        }
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100vh;
+            background: #212121;
+            padding: 20px;
+            box-sizing: border-box;
+
+            text-align: center;
+        }
+        .text-item {
+            opacity: 0;
+            margin: 20px;
+            padding: 20px;
+
+            border: 2px solid black;
+            border-radius: 4px;
+        }
+        .container {
+            margin-left: 50%;
+            text-align: center;
+        }
+        .input-field {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+
+            border: 2px solid lightblue;
+            border-radius: 4px;
+        }
+        .button {
+            background-color: lightblue;
+            border: 2px solid lightblue;
+            border-radius: 4px;
+
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        @keyframes slideIn {
+            0% {
+               transform: translateX(-100%);
+               opacity: 0;
+           }
+           100% {
+                transform: translateX(0);
+               opacity: 1;
+           }
+        }
+
+        .animate {
+            animation: slideIn 1s forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+      <h2 style="margin: 30px; margin-bottom: 50px;">Tips will show up here as you guess wrong...</h2>
+        <div id=0 class="text-item">This password has a weak connection to Shamir Secret Sharing.</div>
+        <div id=1 class="text-item">This is the password which allegedly "saved" the company: "PayPal".</div>
+        <div id=2 class="text-item">This password is a single word.</div>
+        <div id=3 class="text-item">This password has 7 letters.</div>
+        <div id=4 class="text-item">Password has 8 letters.</div>
+        <div id=5 class="text-item">This password is ass.</div>
+        <div id=6 class="text-item">Call Center Scammers (from india) need Dolla-Dolla.</div>
+        <div id=7 class="text-item">This password could have a p in front of it. But it doesn't.</div>
+        <div id=8 class="text-item">It's such a bad password... an "assword" you could say.</div>
+        <div id=9 class="text-item">Two "$" signs are missing. Where are you gonna place them?</div>
+    </div>
+    <div class="container">
+        <h2>It's time for guess the password!</h2>
+        <p id="confirmation">It's gonna be difficult...</p>
+        <input type="text" class="input-field" id="inputField" placeholder="Enter text here">
+        <button class="button" id="clickButton">Log In</button>
+    </div>
+    <script>
+        const sidebar_count = 9;
+        
+        async function all_in() {
+            for (let i = 0; i <= sidebar_count; i++) {
+                await sleep(100);
+                let element = document.getElementById(i);
+                element.classList.add("animate");
+            }
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function hashCode(str) {
+            let hash = 0;
+            for (let i = 0, len = str.length; i < len; i++) {
+                let chr = str.charCodeAt(i);
+                hash = (hash << 5) - hash + chr;
+                hash |= 0; // Convert to 32bit integer
+            }
+            return hash;
+        }
+        let finalhash = 1256062763;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let incrementor = 0;  
+
+            const element = document.documentElement;
+
+            const inputField = document.getElementById('inputField');
+            const clickButton = document.getElementById('clickButton');
+            const confirmation = document.getElementById('confirmation');
+
+            inputField.value = "";
+
+            clickButton.addEventListener('click', function() {
+                let attempt = hashCode(inputField.value);
+                if (attempt === finalhash){
+                    confirmation.innerText = "You somehow guessed the correct password!"
+                    confirmation.style.color = "green";
+                    inputField.style.border = "2px solid green";
+
+                    console.log("Password the same: ", attempt, " ", finalhash);
+                } else {
+                    confirmation.innerText = "You guessed the wrong password...";
+                    confirmation.style.color = "red";
+                    inputField.style.border = "2px solid red";
+
+                    inputField.setAttribute("disabled", "disabled");
+
+                    // Animate all in...
+                    all_in();
+
+                    let element = document.getElementById(incrementor);
+                    incrementor += 1;
+                    element.classList.add("animate");
+
+                    console.log("Password not the same: ", attempt, " ", finalhash);
+                }
+            });
+            inputField.addEventListener('keypress', function() {
+                if (event.key != "Enter") {
+                    return;
+                }  
+
+                let attempt = hashCode(inputField.value);
+                if (attempt === finalhash){
+                    confirmation.innerText = "You somehow guessed the correct password!"
+                    confirmation.style.color = "green";
+                    inputField.style.border = "2px solid green";
+ 
+                    inputField.setAttribute("disabled", "disabled");
+
+                    // Animate all in...
+                    all_in();
+
+                    console.log("Password the same: ", attempt, " ", finalhash);
+                } else {
+                    confirmation.innerText = "You guessed the wrong password...";
+                    confirmation.style.color = "red";
+                    inputField.style.border = "2px solid red";
+
+                    let element = document.getElementById(incrementor);
+                    incrementor += 1;
+                    element.classList.add("animate");
+
+                    console.log("Password not the same: ", attempt, " ", finalhash);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
