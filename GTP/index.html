@@ -134,6 +134,7 @@
             const confirmation = document.getElementById('confirmation');
 
             inputField.value = "";
+            let previous = inputField.value;
 
             clickButton.addEventListener('click', function() {
                 let attempt = hashCode(inputField.value);
@@ -163,7 +164,10 @@
             inputField.addEventListener('keypress', function() {
                 if (event.key != "Enter") {
                     return;
-                }  
+                }
+                
+                if (previous === inputField.value) {return;}
+                previous = inputField.value;
 
                 let attempt = hashCode(inputField.value);
                 if (attempt === finalhash){
