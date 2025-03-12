@@ -137,6 +137,9 @@
             let previous = inputField.value;
 
             clickButton.addEventListener('click', function() {
+                if (previous === inputField.value) {return;}
+                previous = inputField.value;
+
                 let attempt = hashCode(inputField.value);
                 if (attempt === finalhash){
                     confirmation.innerText = "You somehow guessed the correct password!"
